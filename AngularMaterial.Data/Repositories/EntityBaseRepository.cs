@@ -1,20 +1,24 @@
-﻿using System;
+﻿using AngularMaterial.Entity;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AngularMaterial.Data.Repositories
 {
-    public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class, new()
+    public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class, IEntityBase, new()
     {
-        private SimpleAngularJSAppContext dbContext;
+        private AngularMaterialContext dbContext;
 
-        protected SimpleAngularJSAppContext DbContext
+        protected AngularMaterialContext DbContext
         {
             get
             {
-                return dbContext ?? (dbContext = new SimpleAngularJSAppContext());
+                return dbContext ?? (dbContext = new AngularMaterialContext());
             }
         }
 

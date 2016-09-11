@@ -10,9 +10,9 @@ namespace AngularMaterial.Entity
     {
         A, B, C, D, E, F
     }
-    public class Enrollment
+    public class Enrollment : IEntityBase
     {
-        public int ID { get; protected set; }
+        public int ID { get; set; }
         public int StudentID { get; set; }
         public int CourseID { get; set; }
         public Grade? Grade { get; set; }

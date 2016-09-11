@@ -21,6 +21,11 @@ namespace AngularMaterial.Data
         public IDbSet<Course> CourseSets { get; set; }
         public IDbSet<Enrollment> EnrollmentSets { get; set; }
 
+        public virtual void Commit()
+        {
+            base.SaveChanges();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

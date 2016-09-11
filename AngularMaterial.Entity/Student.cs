@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AngularMaterial.Entity
 {
-    public class Student
+    public class Student : IEntityBase
     {
-        public int ID { get; protected set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
