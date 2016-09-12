@@ -1,6 +1,7 @@
 ﻿using AngularMaterial.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -38,7 +39,18 @@ namespace AngularMaterial.Data
                 .Property(s => s.LastName)
                 .IsRequired()
                 .HasMaxLength(50);
+            modelBuilder.Entity<Student>()
+                .Property(s => s.Image)
+                .IsOptional()
+                .HasMaxLength(100);
+            modelBuilder.Entity<Student>()
+                .Property(s => s.Email)
+                .IsRequired()
+                .HasMaxLength(100);
             // Configuration Course
+            modelBuilder.Entity<Course>()
+                .Property(c => c.ID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             modelBuilder.Entity<Course>()
                 .Property(c => c.Title)
                 .IsRequired()
