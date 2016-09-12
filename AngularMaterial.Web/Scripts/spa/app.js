@@ -13,14 +13,22 @@
                 templateUrl: "scripts/spa/students/index/index.html",
                 controller: "studentCtrl"
             })
-        .otherwise({ redirectTo: "/" });
+            .when("/add", {
+                templateUrl: "scripts/spa/students/add/studentAddCtrl.html",
+                controller: "studentAddCtrl"
+            })
+            .when("/student/:id", {
+                templateUrl: "scripts/spa/students/detail/studentDetailCtrl.html",
+                controller: "studentDetailCtrl"
+            })
+            .otherwise({ redirectTo: "/" });
         // Config Material Icons
         $mdIconProvider
             .iconSet('action', 'contents/img/icons/sets/action-icons.svg', 24)
             .iconSet('social', 'contents/img/icons/sets/social-icons.svg', 24)
             .iconSet('navigation', 'contents/img/icons/sets/navigation-icons.svg', 24)
             .iconSet('communication', 'contents/img/icons/sets/communication-icons.svg', 24)
-            .defaultIconSet('contents/img/icons/sets/core-icons.svg', 24);
+            .defaultIconSet('contents/img/icons/sets/content-icons.svg', 24);
     }
     
     run.$inject = ['$rootScope', '$location', '$http'];
