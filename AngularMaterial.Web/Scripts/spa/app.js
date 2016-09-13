@@ -13,13 +13,21 @@
                 templateUrl: "scripts/spa/students/index/index.html",
                 controller: "studentCtrl"
             })
-            .when("/add", {
-                templateUrl: "scripts/spa/students/add/studentAddCtrl.html",
+            .when("/student", {
+                templateUrl: "scripts/spa/students/index/index.html",
+                controller: "studentCtrl"
+            })
+            .when("/student/add", {
+                templateUrl: "scripts/spa/students/add/studentAdd.html",
                 controller: "studentAddCtrl"
             })
             .when("/student/:id", {
                 templateUrl: "scripts/spa/students/detail/studentDetailCtrl.html",
                 controller: "studentDetailCtrl"
+            })
+            .when("/course", {
+                templateUrl: "scripts/spa/courses/index/index.html",
+                controller: "courseCtrl"
             })
             .otherwise({ redirectTo: "/" });
         // Config Material Icons

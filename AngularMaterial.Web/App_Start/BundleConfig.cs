@@ -19,9 +19,11 @@ namespace AngularMaterial.Web
                 "~/Scripts/spa/modules/common.core.js",
                 "~/Scripts/spa/app.js",
                 "~/Scripts/spa/layouts/sideNav.directive.js",
+                "~/Scripts/spa/courses/index/courseCtrl.js",
+                "~/Scripts/spa/home/indexCtrl.js",
                 "~/Scripts/spa/students/index/studentCtrl.js",
-                "~/Scripts/spa/students/index/studentDetailCtrl.js",
-                "~/Scripts/spa/students/index/studentAddCtrl.js"
+                "~/Scripts/spa/students/detail/studentDetailCtrl.js",
+                "~/Scripts/spa/students/add/studentAddCtrl.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Contents/css").Include(

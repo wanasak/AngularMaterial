@@ -33,5 +33,20 @@ namespace AngularMaterial.Web.Controllers
                 return response;
             });
         }
+
+        [Route("{id:int}")]
+        public HttpResponseMessage Student(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                var student = _studentRepository.GetSingle(id);
+
+                response = request.CreateResponse(HttpStatusCode.OK, student);
+
+                return response;
+            });
+        }
     }
 }

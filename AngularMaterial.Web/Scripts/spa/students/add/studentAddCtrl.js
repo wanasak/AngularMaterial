@@ -7,6 +7,8 @@
 
     function studentAddCtrl($scope) {
 
+        //$scope.student = {};
+
     }
 
 })(angular.module('angularMaterial'));

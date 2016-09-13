@@ -1,5 +1,5 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('common.core', ['ngMaterial', 'ngRoute']);
+    angular.module('common.core', ['ngMaterial', 'ngRoute', 'ngMessages']);
 })();
