@@ -18,6 +18,7 @@ namespace AngularMaterial.Web
             bundles.Add(new ScriptBundle("~/bundles/spa").Include(
                 "~/Scripts/spa/modules/common.core.js",
                 "~/Scripts/spa/app.js",
+                "~/Scripts/spa/layouts/sideNav.directive.js",
                 "~/Scripts/spa/students/index/studentCtrl.js",
                 "~/Scripts/spa/students/index/studentDetailCtrl.js",
                 "~/Scripts/spa/students/index/studentAddCtrl.js"

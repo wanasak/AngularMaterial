@@ -12,8 +12,12 @@
 <body ng-cloak>
     <!--
     Your HTML content here
-  -->
+    -->
+    @*Main-Content*@
     <div class="page {{ pageClass }}" ng-view></div>
+
+    @*Side-Nav*@
+    <side-nav></side-nav>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -33,7 +37,7 @@
          * You must include the dependency on 'ngMaterial' 
          */
         //angular.module('BlankApp', ['ngMaterial']);
-        
+
     </script>
 
 </body>

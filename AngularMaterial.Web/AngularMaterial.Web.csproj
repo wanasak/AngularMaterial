@@ -158,6 +158,8 @@
     <Content Include="Contents\img\ic_face_black_48px.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\spa\app.js" />
+    <Content Include="Scripts\spa\layouts\sideNav.directive.js" />
+    <Content Include="Scripts\spa\layouts\sideNav.html" />
     <Content Include="Scripts\spa\modules\common.core.js" />
     <Content Include="Scripts\spa\students\add\studentAddCtrl.html" />
     <Content Include="Scripts\spa\students\add\studentAddCtrl.js" />
