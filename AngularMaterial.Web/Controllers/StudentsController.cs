@@ -35,6 +35,7 @@ namespace AngularMaterial.Web.Controllers
             });
         }
 
+        [HttpGet]
         [Route("{id:int}")]
         public HttpResponseMessage Student(HttpRequestMessage request, int id)
         {
@@ -42,9 +43,30 @@ namespace AngularMaterial.Web.Controllers
             {
                 HttpResponseMessage response = null;
 
-                var student = _studentRepository.GetSingle(id);
+                //var student = _studentRepository.GetSingle(id);
+
+                var student = _studentRepository
+                    .AllIncluding(s => s.Enrollments.Select(e => e.Course))
+                    .FirstOrDefault(s => s.ID == id);
 
                 response = request.CreateResponse(HttpStatusCode.OK, student);
+
+                return response;
+            });
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public HttpResponseMessage DeleteStudent(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                var student = new Student { ID = id };
+                _studentRepository.Delete(student);
+
+                response = request.CreateResponse(HttpStatusCode.OK);
 
                 return response;
             });

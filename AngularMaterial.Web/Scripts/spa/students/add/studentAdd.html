@@ -1,58 +1,58 @@
 ﻿<div layout="column" ng-cloak>
 
-    <md-toolbar md-scroll-shrink ng-if="true">
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Menu" ng-href="#/student">
-                <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
-            </md-button>
-            <h3>
-                <span>Create Student</span>
-            </h3>
-        </div>
-    </md-toolbar>
+  <md-toolbar md-scroll-shrink ng-if="true">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Menu" ng-href="#/student">
+        <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
+      </md-button>
+      <h3>
+        <span>Create Student</span>
+      </h3>
+    </div>
+  </md-toolbar>
 
-    <md-content layout-padding>
+  <md-content layout-padding>
 
-        <h3 class="md-headline">Student Info</h3>
-          <form name="studentForm" ng-submit="addStudent()">
+    <h3 class="md-headline">Student Info</h3>
+    <form name="studentForm" ng-submit="addStudent()">
 
-          <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>First Name</label>
-              <input required name="FirstName" ng-model="student.FirstName">
-              <div ng-messages="studentForm.FirstName.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </md-input-container>
-
-            <md-input-container class="md-block" flex-gt-sm>
-              <label>Last Name</label>
-              <input required name="LastName" ng-model="student.LastName">
-              <div ng-messages="studentForm.LastName.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </md-input-container>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>First Name</label>
+          <input required name="FirstName" ng-model="student.FirstName">
+          <div ng-messages="studentForm.FirstName.$error">
+            <div ng-message="required">This is required.</div>
           </div>
+        </md-input-container>
 
-          <md-input-container class="md-block">
-            <label>Email</label>
-            <input required type="email" name="Email" ng-model="student.Email"
-                   minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-
-            <div ng-messages="studentForm.Email.$error" role="alert">
-              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                Your email must be between 10 and 100 characters long and look like an e-mail address.
-              </div>
-            </div>
-          </md-input-container>
-
-              <div>
-        <md-button type="submit" class="md-raised md-primary">Submit</md-button>
-                  <!--<md-button md-no-ink="" class="md-primary">Submit</md-button>-->
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Last Name</label>
+          <input required name="LastName" ng-model="student.LastName">
+          <div ng-messages="studentForm.LastName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
       </div>
 
-              </form>
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input required type="email" name="Email" ng-model="student.Email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+        />
 
-    </md-content>
+        <div ng-messages="studentForm.Email.$error" role="alert">
+          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your email must be between 10 and 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+      </md-input-container>
+
+      <div class="submit-container">
+        <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+        <!--<md-button md-no-ink="" class="md-primary">Submit</md-button>-->
+      </div>
+
+    </form>
+
+  </md-content>
 
 </div>

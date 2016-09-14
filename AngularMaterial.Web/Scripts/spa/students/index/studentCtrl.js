@@ -20,6 +20,10 @@
 
         loadStudents();
 
+        $scope.test = function () {
+            alert('test');
+        }
+
     }
 
 })(angular.module('angularMaterial'));

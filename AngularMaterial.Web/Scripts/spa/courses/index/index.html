@@ -22,7 +22,7 @@
 
         <md-list>
 
-        <md-list-item class="md-3-line" ng-repeat="item in courses">
+        <md-list-item class="md-3-line" ng-repeat="item in courses" ng-href="#/course/{{ item.ID }}"> 
         
         <div class="md-list-item-text">
             <h3>{{ item.Title }}</h3>
