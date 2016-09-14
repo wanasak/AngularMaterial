@@ -1,5 +1,6 @@
 ﻿using AngularMaterial.Data.Repositories;
 using AngularMaterial.Entity;
+using AngularMaterial.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,29 @@ namespace AngularMaterial.Web.Controllers
                 var student = _studentRepository.GetSingle(id);
 
                 response = request.CreateResponse(HttpStatusCode.OK, student);
+
+                return response;
+            });
+        }
+
+        [HttpPost]
+        [Route("add")]
+        public HttpResponseMessage Create(HttpRequestMessage request, StudentDTO model)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                Student student = new Student
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email
+                };
+
+                _studentRepository.Add(student);
+
+                response = request.CreateResponse(HttpStatusCode.OK);
 
                 return response;
             });

@@ -2,37 +2,36 @@
 
   <md-toolbar md-scroll-shrink ng-if="true">
     <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
         <md-icon md-svg-icon="navigation:menu"></md-icon>
-    </md-button>
-    <h3>
+      </md-button>
+      <h3>
         <span>Student List</span>
-    </h3>
-    <span flex></span>
-    <md-button class="md-icon-button" aria-label="Search">
+      </h3>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Search">
         <md-icon md-svg-icon="action:search"></md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="Search" ng-href="#/student/add">
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Search" ng-href="#/student/add">
         <md-icon md-svg-icon="add_circle_outline"></md-icon>
-    </md-button>
+      </md-button>
     </div>
   </md-toolbar>
-
+  
   <md-content flex>
-
+    
     <md-list>
-
-      <md-list-item class="md-3-line" ng-repeat="item in students">
+      
+      <md-list-item class="md-2-line" ng-repeat="item in students">
         <img ng-src="../../contents/img/{{ item.Image }}" alt="{{ item.FirstName }}" class="md-avatar">
 
         <div class="md-list-item-text">
           <h3>{{ item.FirstName }} {{ item.LastName }}</h3>
-          <h4><md-icon md-svg-icon="communication:email"></md-icon> {{ item.Email }}</h4>
+          <!--<h4>
+            <md-icon md-svg-icon="communication:email"></md-icon> {{ item.Email }}</h4>-->
 
-          <!--<p>
-            {{item.notes}}
-          </p>-->
-            <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Detail" md-svg-icon="navigation:chevron_right"></md-icon>
+          <p>ID: {{ item.ID }}</p>
+          <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Detail" md-svg-icon="navigation:chevron_right"></md-icon>
         </div>
         <md-divider inset></md-divider>
       </md-list-item>

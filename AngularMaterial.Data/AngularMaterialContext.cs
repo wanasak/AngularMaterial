@@ -16,6 +16,7 @@ namespace AngularMaterial.Data
             : base("AngularMaterial")
         {
             Database.SetInitializer<AngularMaterialContext>(null);
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public IDbSet<Student> StudentSets { get; set; }

@@ -3,12 +3,11 @@
 
     app.controller('courseCtrl', courseCtrl);
 
-    courseCtrl.$inject = ['$scope', '$http', '$timeout', '$mdSidenav'];
+    courseCtrl.$inject = ['$scope', '$http'];
 
-    function courseCtrl($scope, $http, $timeout, $mdSidenav) {
+    function courseCtrl($scope, $http) {
 
         $scope.courses = [];
-        $scope.toggleLeft = buildToggler('left');
 
         function loadCourses() {
             $http.get("api/courses", null)
@@ -17,11 +16,6 @@
                 }, function (response) {
 
                 });
-        }
-        function buildToggler(componentId) {
-            return function () {
-                $mdSidenav(componentId).toggle();
-            }
         }
 
         loadCourses();

@@ -10,6 +10,7 @@ namespace AngularMaterial.Data.Repositories
 {
     public interface IEntityBaseRepository<T> where T : class, IEntityBase, new()
     {
+        IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties);
         IQueryable<T> GetAll();
         IQueryable<T> FindBy(Expression<Func<T, bool>> predict);
         T GetSingle(int id);

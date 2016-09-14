@@ -3,12 +3,11 @@
 
     app.controller('studentCtrl', studentCtrl);
 
-    studentCtrl.$inject = ['$scope', '$mdDialog', '$http', '$timeout', '$mdSidenav'];
+    studentCtrl.$inject = ['$scope', '$mdDialog', '$http'];
 
-    function studentCtrl($scope, $mdDialog, $http, $timeout, $mdSidenav) {
+    function studentCtrl($scope, $mdDialog, $http) {
 
         $scope.students = [];
-        $scope.toggleLeft = buildToggler('left');
 
         function loadStudents() {
             $http.get("api/students", null)
@@ -17,11 +16,6 @@
                 }, function (response) {
 
                 });
-        }
-        function buildToggler(componentId) {
-            return function () {
-                $mdSidenav(componentId).toggle();
-            }
         }
 
         loadStudents();

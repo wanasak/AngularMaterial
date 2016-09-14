@@ -7,14 +7,21 @@
 
     <md-content layout-margin>
 
-        <md-list-item ng-href="#/student">
+        <md-list-item ng-href="#/" ng-click="toggleLeft()">
+            <md-icon md-svg-icon="action:home"></md-icon>
+            <p>Home</p>
+        </md-list-item>
+
+        <md-list-item ng-href="#/student" ng-click="toggleLeft()">
             <md-icon md-svg-icon="social:people"></md-icon>
             <p>Student</p>
         </md-list-item>
-        <md-list-item ng-href="#/course">
+
+        <md-list-item ng-href="#/course" ng-click="toggleLeft()">
             <md-icon md-svg-icon="social:school"></md-icon>
             <p>Course</p>
         </md-list-item>
+
     </md-content>
 
 </md-sidenav>

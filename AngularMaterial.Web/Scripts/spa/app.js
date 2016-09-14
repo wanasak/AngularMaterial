@@ -10,8 +10,8 @@
     function config($routeProvider, $mdIconProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "scripts/spa/students/index/index.html",
-                controller: "studentCtrl"
+                templateUrl: "scripts/spa/home/index.html",
+                controller: "indexCtrl"
             })
             .when("/student", {
                 templateUrl: "scripts/spa/students/index/index.html",
