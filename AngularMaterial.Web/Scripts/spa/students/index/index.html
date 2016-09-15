@@ -19,26 +19,17 @@
   </md-toolbar>
 
   <md-content flex>
-
     <md-list>
-
       <md-list-item class="md-2-line" ng-repeat="item in students" ng-href="#/student/{{ item.ID }}">
         <img ng-src="../../contents/img/{{ item.Image }}" alt="{{ item.FirstName }}" class="md-avatar">
-
         <div class="md-list-item-text">
           <h3>{{ item.FirstName }} {{ item.LastName }}</h3>
-          <!--<h4>
-            <md-icon md-svg-icon="communication:email"></md-icon> {{ item.Email }}</h4>-->
-
           <p>ID: {{ item.ID }}</p>
           <md-icon class="md-secondary" aria-label="Detail" md-svg-icon="navigation:chevron_right"></md-icon>
-
         </div>
         <md-divider inset></md-divider>
       </md-list-item>
-
     </md-list>
-
   </md-content>
 
 </div>

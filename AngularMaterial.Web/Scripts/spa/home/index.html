@@ -5,10 +5,54 @@
             <!--<md-button class="md-icon-button" aria-label="Menu" ng-href="#/student">
                 <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
             </md-button>-->
+            <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
+            </md-button>
             <h3>
                 <span>Home</span>
             </h3>
         </div>
     </md-toolbar>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="25" layout="column">
+            <div flex-xs layout="column">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Student</span>
+                            <span class="md-subhead">Section</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <md-icon class="md-avatar-icon" md-svg-icon="social:people"></md-icon>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <!--<md-button>Action 1</md-button>-->
+                        <md-button ng-href="#/student">More Info</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+        <div flex-xs flex-gt-xs="25" layout="column">
+            <div flex-xs layout="column">
+                <md-card md-theme="dark-grey" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Course</span>
+                            <span class="md-subhead">Section</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <md-icon class="md-avatar-icon" md-svg-icon="social:school"></md-icon>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <!--<md-button>Action 1</md-button>-->
+                        <md-button ng-href="#/course">More Info</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+    </md-content>
 
 </div>

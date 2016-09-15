@@ -20,7 +20,8 @@
 
     <md-content flex>
         <md-list>
-            <md-list-item class="md-3-line" ng-repeat="item in courses" ng-href="#/course/{{ item.ID }}">
+            <md-list-item class="md-2-line" ng-repeat="item in courses" ng-href="#/course/{{ item.ID }}">
+                <img ng-src="../../contents/img/ic_bookmark_border_black_48px.svg" alt="{{ item.Title }}" class="md-avatar">
                 <div class="md-list-item-text">
                     <h3>{{ item.Title }}</h3>
                     <h4>{{ item.ID }}</h4>

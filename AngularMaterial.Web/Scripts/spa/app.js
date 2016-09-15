@@ -5,9 +5,9 @@
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider', '$mdIconProvider'];
+    config.$inject = ['$routeProvider', '$mdIconProvider', '$mdThemingProvider'];
 
-    function config($routeProvider, $mdIconProvider) {
+    function config($routeProvider, $mdIconProvider, $mdThemingProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "scripts/spa/home/index.html",
@@ -41,6 +41,7 @@
             .iconSet('navigation', 'contents/img/icons/sets/navigation-icons.svg', 24)
             .iconSet('communication', 'contents/img/icons/sets/communication-icons.svg', 24)
             .defaultIconSet('contents/img/icons/sets/content-icons.svg', 24);
+        $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
     }
     
     run.$inject = ['$rootScope', '$location', '$http'];

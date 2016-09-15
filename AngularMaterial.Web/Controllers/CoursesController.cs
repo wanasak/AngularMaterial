@@ -1,5 +1,6 @@
 ﻿using AngularMaterial.Data.Repositories;
 using AngularMaterial.Entity;
+using AngularMaterial.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,14 @@ namespace AngularMaterial.Web.Controllers
             {
                 HttpResponseMessage response = null;
 
-                var courses = _courseRepository.GetAll();
+                var courses = _courseRepository
+                    .GetAll()
+                    .Select(c => new CourseDTO()
+                    {
+                        ID = c.ID,
+                        Title = c.Title,
+                        Credits = c.Credits
+                    });
 
                 response = request.CreateResponse(HttpStatusCode.OK, courses);
 
@@ -43,7 +51,15 @@ namespace AngularMaterial.Web.Controllers
             {
                 HttpResponseMessage response = null;
 
-                var course = _courseRepository.GetSingle(id);
+                var course = _courseRepository
+                    .GetAll()
+                    .Select(c => new CourseDTO()
+                    {
+                        ID = c.ID,
+                        Title = c.Title,
+                        Credits = c.Credits
+                    })
+                    .SingleOrDefault(c => c.ID == id);
 
                 response = request.CreateResponse(HttpStatusCode.OK, course);
 

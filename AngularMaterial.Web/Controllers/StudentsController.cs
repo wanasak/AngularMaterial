@@ -27,7 +27,16 @@ namespace AngularMaterial.Web.Controllers
             {
                 HttpResponseMessage response = null;
 
-                var students = _studentRepository.GetAll();
+                var students = _studentRepository
+                    .GetAll()
+                    .Select(s => new StudentDTO()
+                    {
+                        ID = s.ID,
+                        FirstName = s.FirstName,
+                        LastName = s.LastName,
+                        Email = s.Email,
+                        Image = s.Image
+                    });
 
                 response = request.CreateResponse(HttpStatusCode.OK, students);
 
@@ -47,6 +56,26 @@ namespace AngularMaterial.Web.Controllers
 
                 var student = _studentRepository
                     .AllIncluding(s => s.Enrollments.Select(e => e.Course))
+                    .Select(s => new StudentDetailDTO()
+                    {
+                        ID = s.ID,
+                        FirstName = s.FirstName,
+                        LastName = s.LastName,
+                        Email = s.Email,
+                        Image = s.Image,
+                        Enrollments = s.Enrollments.Select(e => new EnrollmentDTO()
+                        {
+                            StudentID = e.StudentID,
+                            CourseID = e.CourseID,
+                            Grade = (Grade)e.Grade,
+                            Course = new CourseDTO()
+                            {
+                                ID = e.Course.ID,
+                                Title = e.Course.Title,
+                                Credits = e.Course.Credits
+                            }
+                        })
+                    })
                     .FirstOrDefault(s => s.ID == id);
 
                 response = request.CreateResponse(HttpStatusCode.OK, student);

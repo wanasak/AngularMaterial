@@ -142,6 +142,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CourseDTO.cs" />
+    <Compile Include="Models\EnrollmentDTO.cs" />
+    <Compile Include="Models\StudentDetailDTO.cs" />
     <Compile Include="Models\StudentDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,6 +159,7 @@
     </Content>
     <Content Include="Contents\img\icons\sets\navigation-icons.svg" />
     <Content Include="Contents\img\icons\sets\social-icons.svg" />
+    <Content Include="Contents\img\ic_bookmark_border_black_48px.svg" />
     <Content Include="Contents\img\ic_face_black_48px.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\vendors\angular-route.js" />
