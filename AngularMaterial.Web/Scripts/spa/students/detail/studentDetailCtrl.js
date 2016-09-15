@@ -28,7 +28,8 @@
         }
         function showConfirmDelete() {
             var confirm = $mdDialog.confirm()
-                .title('Would you like to delete this student?')
+                //.title('Would you like to delete this student?')
+                .textContent('Would you like to delete this student?')
                 .ariaLabel('Confirm')
                 //.targetEvent(ev)
                 .ok('Yes')

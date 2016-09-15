@@ -35,6 +35,7 @@ namespace AngularMaterial.Web.Controllers
             });
         }
 
+        [HttpGet]
         [Route("{id:int}")]
         public HttpResponseMessage Course(HttpRequestMessage request, int id)
         {

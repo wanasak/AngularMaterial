@@ -29,6 +29,10 @@
                 templateUrl: "scripts/spa/courses/index/index.html",
                 controller: "courseCtrl"
             })
+            .when("/course/:id", {
+                templateUrl: "scripts/spa/courses/detail/courseDetail.html",
+                controller: "courseDetailCtrl"
+            })
             .otherwise({ redirectTo: "/" });
         // Config Material Icons
         $mdIconProvider

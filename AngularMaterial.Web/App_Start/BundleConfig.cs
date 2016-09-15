@@ -20,6 +20,7 @@ namespace AngularMaterial.Web
                 "~/Scripts/spa/app.js",
                 "~/Scripts/spa/layouts/sideNav.directive.js",
                 "~/Scripts/spa/courses/index/courseCtrl.js",
+                "~/Scripts/spa/courses/detail/courseDetailCtrl.js",
                 "~/Scripts/spa/home/indexCtrl.js",
                 "~/Scripts/spa/home/rootCtrl.js",
                 "~/Scripts/spa/students/index/studentCtrl.js",

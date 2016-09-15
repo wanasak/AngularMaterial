@@ -3,19 +3,17 @@
 
     app.controller('studentAddCtrl', studentAddCtrl);
 
-    studentAddCtrl.$inject = ['$scope', '$http'];
+    studentAddCtrl.$inject = ['$scope', '$http', '$location'];
 
-    function studentAddCtrl($scope, $http) {
+    function studentAddCtrl($scope, $http, $location) {
 
         $scope.addStudent = addStudent;
 
-        // TODO: Add student
         function addStudent() {
-            console.log($scope.student);
-            //$http.post("api/students/add", $scope.student)
-            //    .then(function (result) {
-
-            //    }, function (response) { });
+            $http.post("api/students/add", $scope.student)
+               .then(function (result) {
+                   $location.path("/student");
+               }, function (response) { });
         }
 
     }

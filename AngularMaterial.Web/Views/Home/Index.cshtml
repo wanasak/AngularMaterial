@@ -13,11 +13,10 @@
     <!--
     Your HTML content here
     -->
-    @*Main-Content*@
-    <div class="page {{ pageClass }}" ng-view></div>
-
-    @*Side-Nav*@
-    <side-nav></side-nav>
+    <div id="main" layout>
+        <side-nav></side-nav>
+        <div ng-view layout="column" flex></div>
+    </div>
 
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
