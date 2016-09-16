@@ -8,6 +8,7 @@
     function studentCtrl($scope, $mdDialog, $http) {
 
         $scope.students = [];
+        $scope.toggleSearchMobile = true;
 
         function loadStudents() {
             $http.get("api/students", null)

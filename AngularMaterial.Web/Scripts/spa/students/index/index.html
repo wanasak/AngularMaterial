@@ -1,26 +1,67 @@
 ﻿<div layout="column" ng-cloak>
-
-  <md-toolbar md-whiteframe="6">
+  <!--Toolbar for desktop and tablet-->
+  <md-toolbar md-whiteframe="6" hide-xs>
     <div class="md-toolbar-tools">
       <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+        <md-tooltip>Menu</md-tooltip>
         <md-icon md-svg-icon="navigation:menu"></md-icon>
       </md-button>
-      <h3>
+      <h2>
         <span>Student List</span>
-      </h3>
+      </h2>
       <span flex></span>
-      <md-button class="md-icon-button" aria-label="Search">
+      <!--<md-button class="md-icon-button" aria-label="Search">
         <md-icon md-svg-icon="action:search"></md-icon>
-      </md-button>
+      </md-button>-->
+      <md-input-container md-no-float class="md-accent" style="padding-bottom:0px;margin-left:25px">
+        <md-icon md-svg-icon="action:search"></md-icon>
+        <input ng-model="filterStudents" placeholder="Search here" style="color: white;">
+      </md-input-container>
       <md-button class="md-icon-button" aria-label="Search" ng-href="#/student/add">
+        <md-tooltip>Add</md-tooltip>
         <md-icon md-svg-icon="add_circle_outline"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
-
+  <!--Toolbar for mobile-->
+  <md-toolbar hide-gt-xs>
+    <div class="md-toolbar-tools" data-ng-show="toggleSearchMobile">
+      <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+        <md-tooltip>Menu</md-tooltip>
+        <md-icon md-svg-icon="navigation:menu"></md-icon>
+      </md-button>
+      <h2>
+        <span>Student List</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Search" data-ng-click="toggleSearchMobile = false">
+        <md-tooltip>Search</md-tooltip>
+        <md-icon md-svg-icon="action:search"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Add" ng-href="#/student/add">
+        <md-tooltip>Add</md-tooltip>
+        <md-icon md-svg-icon="add_circle_outline"></md-icon>
+      </md-button>
+    </div>
+    <div class="md-toolbar-tools" data-ng-hide="toggleSearchMobile">
+      <md-button class="md-icon-button" aria-label="Back" data-ng-click="toggleSearchMobile = true">
+        <md-tooltip>Back</md-tooltip>
+        <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
+      </md-button>
+      <md-input-container md-no-float class="md-accent" style="padding-bottom:0px;">
+        <input ng-model="filterStudents" placeholder="Search here" style="color: white;">
+      </md-input-container>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Search">
+        <md-tooltip>Search</md-tooltip>
+        <md-icon md-svg-icon="action:search"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <!--Content-->
   <md-content flex>
     <md-list>
-      <md-list-item class="md-2-line" ng-repeat="item in students" ng-href="#/student/{{ item.ID }}">
+      <md-list-item class="md-2-line" ng-repeat="item in students | filter: filterStudents" ng-href="#/student/{{ item.ID }}">
         <img ng-src="../../contents/img/{{ item.Image }}" alt="{{ item.FirstName }}" class="md-avatar">
         <div class="md-list-item-text">
           <h3>{{ item.FirstName }} {{ item.LastName }}</h3>
@@ -31,5 +72,4 @@
       </md-list-item>
     </md-list>
   </md-content>
-
 </div>
