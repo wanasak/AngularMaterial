@@ -1,0 +1,37 @@
+<div layout="column">
+
+    <md-toolbar md-whiteframe="6">
+        <div class="md-toolbar-tools">
+            <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+                <md-tooltip>Menu</md-tooltip>
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
+            </md-button>
+            <h2>
+                <span>Settings</span>
+            </h2>
+            <span flex></span>
+            <!--<md-button class="md-icon-button" aria-label="Search" ng-href="#/student/add">
+                <md-tooltip>Add</md-tooltip>
+                <md-icon md-svg-icon="add_circle_outline"></md-icon>
+            </md-button>-->
+        </div>
+    </md-toolbar>
+
+
+    <div>
+        <form ng-submit="saveSettings()" ng-cloak style="padding: 0 20px;">
+            <p>Current Theme: <span class="radioValue">{{ app.settings.theme }}</span> </p>
+
+            <md-radio-group ng-model="selectedTheme">
+                <md-radio-button value="{{theme}}" ng-repeat="theme in themes">{{theme}}</md-radio-button>
+            </md-radio-group>
+
+            <div class="submit-container">
+                <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>

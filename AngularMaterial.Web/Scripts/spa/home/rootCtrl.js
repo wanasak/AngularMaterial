@@ -7,6 +7,12 @@
 
     function rootCtrl($scope, $mdSidenav, $timeout) {
 
+        // App settings
+        $scope.$root.app = {
+            settings: {
+                theme: 'indigo'
+            }
+        }
         $scope.toggleLeft = buildToggler('left');
 
         function buildToggler(componentId) {

@@ -33,6 +33,10 @@
                 templateUrl: "scripts/spa/courses/detail/courseDetail.html",
                 controller: "courseDetailCtrl"
             })
+            .when("/setting", {
+                templateUrl: "scripts/spa/settings/index.html",
+                controller: "settingCtrl"
+            })
             .otherwise({ redirectTo: "/" });
         // Config Material Icons
         $mdIconProvider
@@ -41,11 +45,29 @@
             .iconSet('navigation', 'contents/img/icons/sets/navigation-icons.svg', 24)
             .iconSet('communication', 'contents/img/icons/sets/communication-icons.svg', 24)
             .defaultIconSet('contents/img/icons/sets/content-icons.svg', 24);
-        $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+        // Create the other theme options
+        var themes = ThemeService();
+        for (var index = 0; index < themes.length; ++index) {
+            $mdThemingProvider.theme(themes[index])// + '-theme')
+                .primaryPalette(themes[index]);
+        }
+        // Enable theme watching.
+        $mdThemingProvider.alwaysWatchTheme(true);
     }
-    
+
+    function ThemeService() {
+        var themes = [
+            'indigo',
+            'pink',
+            'green',
+            'yellow',
+            'orange'
+        ];
+        return themes;
+    }
+
     run.$inject = ['$rootScope', '$location', '$http'];
 
-    function run($rootScope, $location, $http) {}
+    function run($rootScope, $location, $http) { }
 
 })();

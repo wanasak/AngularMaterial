@@ -13,7 +13,7 @@
     <!--
     Your HTML content here
     -->
-    <div id="main" layout>
+    <div id="main" layout md-theme="{{app.settings.theme}}" md-theme-watch="true">
         <side-nav></side-nav>
         <div ng-view layout="column" flex></div>
     </div>

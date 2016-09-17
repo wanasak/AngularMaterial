@@ -48,6 +48,6 @@
         display: none;
     }
 }*/
-md-input-container .md-errors-spacer{
+.md-input-container .md-errors-spacer{
     min-height: 0px !important;
 }
