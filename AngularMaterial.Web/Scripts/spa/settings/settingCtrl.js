@@ -25,7 +25,8 @@
                 'pink',
                 'green',
                 'yellow',
-                'orange'
+                'orange',
+                'teal'
             ];
             return themes;
         }

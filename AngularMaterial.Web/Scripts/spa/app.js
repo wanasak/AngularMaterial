@@ -29,6 +29,10 @@
                 templateUrl: "scripts/spa/courses/index/index.html",
                 controller: "courseCtrl"
             })
+            .when("/course/add", {
+                templateUrl: "scripts/spa/courses/add/courseAdd.html",
+                controller: "courseAddCtrl"
+            })
             .when("/course/:id", {
                 templateUrl: "scripts/spa/courses/detail/courseDetail.html",
                 controller: "courseDetailCtrl"
@@ -61,7 +65,8 @@
             'pink',
             'green',
             'yellow',
-            'orange'
+            'orange',
+            'teal'
         ];
         return themes;
     }

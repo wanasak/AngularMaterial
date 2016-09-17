@@ -3,6 +3,7 @@
     <md-toolbar md-whiteframe="6">
         <div class="md-toolbar-tools">
             <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+                <md-tooltip>Menu</md-tooltip>
                 <md-icon md-svg-icon="navigation:menu"></md-icon>
             </md-button>
             <h3>
@@ -12,7 +13,8 @@
             <md-button class="md-icon-button" aria-label="Search">
                 <md-icon md-svg-icon="action:search"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" aria-label="Search">
+            <md-button class="md-icon-button" aria-label="Add" ng-href="#/course/add">
+                <md-tooltip>Add</md-tooltip>
                 <md-icon md-svg-icon="add_circle_outline"></md-icon>
             </md-button>
         </div>

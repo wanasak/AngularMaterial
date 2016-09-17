@@ -66,5 +66,27 @@ namespace AngularMaterial.Web.Controllers
                 return response;
             });
         }
+
+        [HttpPost]
+        public HttpResponseMessage Create(HttpRequestMessage request, CourseDTO model)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                Course course = new Course()
+                {
+                    ID = model.ID,
+                    Title = model.Title,
+                    Credits = model.Credits,
+                };
+
+                _courseRepository.Add(course);
+
+                response = request.CreateResponse(HttpStatusCode.OK);
+
+                return response;
+            });
+        }
     }
 }
