@@ -88,5 +88,23 @@ namespace AngularMaterial.Web.Controllers
                 return response;
             });
         }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                Course course = new Course() { ID = id };
+                _courseRepository.Delete(course);
+
+                response = request.CreateResponse(HttpStatusCode.OK);
+
+                return response;
+            });
+        }
+
     }
 }

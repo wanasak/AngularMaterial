@@ -19,8 +19,16 @@
         function showMoreAction() {
             //$scope.alert = '';
             $mdBottomSheet.show({
-                templateUrl: 'scripts/spa/students/detail/bottomSheetListTemplate.html',
-                controller: 'bottomSheetListTemplateCtrl'
+                templateUrl: 'scripts/spa/layouts/bottomSheetListTemplate.html',
+                controller: 'bottomSheetListTemplateCtrl',
+                resolve: {
+                    items: function () {
+                        return [
+                            { name: 'Edit', icon: 'action:build' },
+                            { name: 'Delete', icon: 'action:delete' }
+                        ]
+                    }
+                }
             }).then(function (clickedItem) {
                 //$scope.alert = clickedItem['name'] + ' clicked!';
                 performMoreAction(clickedItem['name']);
@@ -34,9 +42,9 @@
                 //.targetEvent(ev)
                 .ok('Yes')
                 .cancel('No');
-            $mdDialog.show(confirm).then(function() {
+            $mdDialog.show(confirm).then(function () {
                 deleteStudent();
-            }, function() { });
+            }, function () { });
         }
         function performMoreAction(action) {
             if (action == "Delete") {
@@ -49,7 +57,7 @@
             $http.delete("api/students/" + $routeParams.id, null)
                 .then(function (result) {
                     $location.path("/student");
-                }, function (response) {});
+                }, function (response) { });
         }
 
         loadStudentDetail();

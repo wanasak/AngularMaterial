@@ -19,17 +19,19 @@
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
           <label>First Name</label>
-          <input required name="FirstName" ng-model="student.FirstName">
+          <input required name="FirstName" ng-model="student.FirstName" md-maxlength="50">
           <div ng-messages="studentForm.FirstName.$error">
             <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The first name must be less than 50 characters long.</div>
           </div>
         </md-input-container>
 
         <md-input-container class="md-block" flex-gt-sm>
           <label>Last Name</label>
-          <input required name="LastName" ng-model="student.LastName">
+          <input required name="LastName" ng-model="student.LastName" md-maxlength="50">
           <div ng-messages="studentForm.LastName.$error">
             <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The last name must be less than 50 characters long.</div>
           </div>
         </md-input-container>
       </div>
