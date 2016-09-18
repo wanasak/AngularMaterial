@@ -14,13 +14,14 @@
                 .then(function (result) {
                     $location.path("/course");
                 }, function (response) {
-                    addCourseFailed();
+                    addCourseFailed(response.data.Message);
                 });
         }
-        function addCourseFailed() {
+        function addCourseFailed(msg) {
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent('Create a new course failed. Please try again.')
+                    //.textContent('Create a new course failed. Please try again.')
+                    .textContent(msg)
                     .position('top rigth')
                     .hideDelay(2000)
             );

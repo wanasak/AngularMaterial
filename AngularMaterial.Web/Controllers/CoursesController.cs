@@ -1,6 +1,7 @@
 ﻿using AngularMaterial.Data.Repositories;
 using AngularMaterial.Entity;
 using AngularMaterial.Web.Models;
+using AngularMaterial.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,10 @@ namespace AngularMaterial.Web.Controllers
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
+
+                bool isCourseIDExist = _courseRepository.IsCourseIDExist(model.ID);
+                if (isCourseIDExist)
+                    return request.CreateErrorResponse(HttpStatusCode.BadRequest, "Course ID already exist.");
 
                 Course course = new Course()
                 {
