@@ -15,9 +15,11 @@ namespace AngularMaterial.Web.Controllers
     {
         private readonly IEntityBaseRepository<Student> _studentRepository;
 
-        public StudentsController() : base()
+        public StudentsController(
+            IEntityBaseRepository<Student> studentRepository)
+            : base()
         {
-            _studentRepository = new EntityBaseRepository<Student>(); // studentRepository;
+            _studentRepository = studentRepository;
         }
 
         [HttpGet]
