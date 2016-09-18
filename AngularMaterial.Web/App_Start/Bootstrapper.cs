@@ -1,8 +1,10 @@
-﻿using AngularMaterial.Data.Repositories;
+﻿using AngularMaterial.Data;
+using AngularMaterial.Data.Repositories;
 using Autofac;
 using Autofac.Integration.WebApi;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,6 +24,9 @@ namespace AngularMaterial.Web.App_Start
 
             // Register web api controller
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
+            // Register EF context
+            builder.RegisterType<AngularMaterialContext>().As<DbContext>().InstancePerRequest();
 
             // Register generic repository
             builder.RegisterGeneric(typeof(EntityBaseRepository<>))
