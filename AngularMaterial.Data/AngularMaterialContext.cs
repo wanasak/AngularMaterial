@@ -22,6 +22,7 @@ namespace AngularMaterial.Data
         public IDbSet<Student> StudentSets { get; set; }
         public IDbSet<Course> CourseSets { get; set; }
         public IDbSet<Enrollment> EnrollmentSets { get; set; }
+        public IDbSet<Department> DepartmentSets { get; set; }
 
         public virtual void Commit()
         {
@@ -56,6 +57,18 @@ namespace AngularMaterial.Data
                 .Property(c => c.Title)
                 .IsRequired()
                 .HasMaxLength(100);
+            // Configuration Department
+            modelBuilder.Entity<Department>()
+                .Property(d => d.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+            modelBuilder.Entity<Department>()
+                .Property(d => d.Address)
+                .IsRequired()
+                .HasMaxLength(200);
+            modelBuilder.Entity<Department>()
+                .Property(d => d.StartDate)
+                .IsRequired();
             // Configuration Enrollment
         }
     }

@@ -1,0 +1,24 @@
+<div layout="column" ng-cloak>
+    <!--Toolbar-->
+    <md-toolbar md-whiteframe="6">
+        <div class="md-toolbar-tools">
+            <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+                <md-tooltip>Menu</md-tooltip>
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
+            </md-button>
+            <h3>
+                <span>Department List</span>
+            </h3>
+        </div>
+    </md-toolbar>
+    <!--Content-->
+    <md-content flex>
+        <md-list>
+            <md-list-item ng-repeat="item in departments" ng-href="#/department/{{ item.ID }}">
+                <p>{{item.Name}}</p>
+                <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Detail" md-svg-icon="navigation:chevron_right"></md-icon>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>

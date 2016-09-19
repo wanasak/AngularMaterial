@@ -145,12 +145,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ApiControllerBase.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CourseDTO.cs" />
+    <Compile Include="Models\DepartmentDTO.cs" />
     <Compile Include="Models\EnrollmentDTO.cs" />
     <Compile Include="Models\StudentDetailDTO.cs" />
     <Compile Include="Models\StudentDTO.cs" />

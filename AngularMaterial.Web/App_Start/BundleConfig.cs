@@ -25,6 +25,8 @@ namespace AngularMaterial.Web
                 "~/Scripts/spa/settings/settingCtrl.js",
                 "~/Scripts/spa/home/indexCtrl.js",
                 "~/Scripts/spa/home/rootCtrl.js",
+                "~/Scripts/spa/departments/index/departmentCtrl.js",
+                "~/Scripts/spa/departments/detail/departmentDetailCtrl.js",
                 "~/Scripts/spa/students/index/studentCtrl.js",
                 "~/Scripts/spa/students/detail/studentDetailCtrl.js",
                 "~/Scripts/spa/layouts/bottomSheetListTemplateCtrl.js",

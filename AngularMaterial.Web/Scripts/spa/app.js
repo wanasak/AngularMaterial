@@ -37,6 +37,14 @@
                 templateUrl: "scripts/spa/courses/detail/courseDetail.html",
                 controller: "courseDetailCtrl"
             })
+            .when("/department", {
+                templateUrl: "scripts/spa/departments/index/index.html",
+                controller: "departmentCtrl"
+            })
+            .when("/department/:id", {
+                templateUrl: "scripts/spa/departments/detail/departmentDetail.html",
+                controller: "departmentDetailCtrl"
+            })
             .when("/setting", {
                 templateUrl: "scripts/spa/settings/index.html",
                 controller: "settingCtrl"

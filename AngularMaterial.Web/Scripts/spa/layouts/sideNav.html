@@ -1,8 +1,7 @@
-﻿<md-sidenav class="md-sidenav-left" md-component-id="left"
-    md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')">
+﻿<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" md-is-locked-open="$mdMedia('gt-md')">
 
     <md-toolbar class="md-theme-indigo">
-    <h1 class="md-toolbar-tools">Chiang Mai University</h1>
+        <h1 class="md-toolbar-tools">Chiang Mai University</h1>
     </md-toolbar>
 
     <md-content layout-margin>
@@ -22,7 +21,12 @@
             <p>Course</p>
         </md-list-item>
 
-        <md-divider ></md-divider>
+        <md-list-item ng-href="#/department" ng-click="toggleLeft()">
+            <md-icon md-svg-icon="social:location_city"></md-icon>
+            <p md-line>Department</p>
+        </md-list-item>
+
+        <md-divider></md-divider>
 
         <md-list-item ng-href="#/setting" ng-click="toggleLeft()">
             <md-icon md-svg-icon="action:settings"></md-icon>

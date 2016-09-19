@@ -39,15 +39,25 @@ using System.Linq;
                 new Student { FirstName = "Nino", LastName = "Olivetto", Image = "ic_face_black_48px.svg", Email = "nino2008@gmail.com" }
                 );
             context.SaveChanges();
+            context.DepartmentSets.AddOrUpdate(
+                d => d.Name,
+                new Department { Name = "Accounting", StartDate = new DateTime(1999, 10, 1), Address = "56 Navigation St, Birmingham B2 4BT, UK" },
+                new Department { Name = "Nurse", StartDate = new DateTime(1990, 4, 30), Address = "17 Victoria Rd, Salford M6 8FZ, UK" },
+                new Department { Name = "Medicine", StartDate = new DateTime(1987, 11, 28), Address = "176 Oxford Rd, Manchester M13 9QQ, UK" },
+                new Department { Name = "Economic", StartDate = new DateTime(1979, 3, 4), Address = "2-3 Brunswick Pl, Southampton SO15 2AN, UK" },
+                new Department { Name = "Engineering", StartDate = new DateTime(1955, 1, 21), Address = "Laurel Rd, Ferryhill DL17 0DW, UK" },
+                new Department { Name = "Science", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" }
+                );
+            context.SaveChanges();
             context.CourseSets.AddOrUpdate(
                 c => c.ID,
-                new Course { ID = 1050, Title = "Chemistry", Credits = 3, },
-                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, },
-                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, },
-                new Course { ID = 1045, Title = "Calculus", Credits = 4, },
-                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, },
-                new Course { ID = 2021, Title = "Composition", Credits = 3, },
-                new Course { ID = 2042, Title = "Literature", Credits = 4, }
+                new Course { ID = 1050, Title = "Chemistry", Credits = 3, DepartmentID = 1 },
+                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, DepartmentID = 2 },
+                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, DepartmentID = 3 },
+                new Course { ID = 1045, Title = "Calculus", Credits = 4, DepartmentID = 4 },
+                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, DepartmentID = 5 },
+                new Course { ID = 2021, Title = "Composition", Credits = 3, DepartmentID = 5 },
+                new Course { ID = 2042, Title = "Literature", Credits = 4, DepartmentID = 6 }
                 );
             context.SaveChanges();
             context.EnrollmentSets.AddOrUpdate(
