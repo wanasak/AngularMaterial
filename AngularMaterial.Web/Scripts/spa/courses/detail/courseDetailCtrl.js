@@ -38,6 +38,7 @@
                 .ariaLabel('Confirm')
                 //.targetEvent(ev)
                 .ok('Yes')
+                .theme($scope.$root.app.settings.theme)
                 .cancel('No');
             $mdDialog.show(confirm).then(function () {
                 deleteCourse();
