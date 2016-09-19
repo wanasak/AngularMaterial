@@ -1,5 +1,7 @@
 # AngularMaterial
 
+Basic CRUD application with AngularJS and Material Design.
+
 Installation instructors
 
 1. Build solution
