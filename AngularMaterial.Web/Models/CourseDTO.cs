@@ -12,5 +12,6 @@ namespace AngularMaterial.Web.Models
         public String Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentID { get; set; }
+        public string DepartmentName { get; set; }
     }
 }

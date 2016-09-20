@@ -59,7 +59,8 @@ namespace AngularMaterial.Web.Controllers
                     {
                         ID = c.ID,
                         Title = c.Title,
-                        Credits = c.Credits
+                        Credits = c.Credits,
+                        DepartmentName = c.Department.Name
                     })
                     .SingleOrDefault(c => c.ID == id);
 
