@@ -43,6 +43,12 @@
             <div ng-message="required">This is required.</div>
           </div>
         </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Department</label>
+          <md-select name="department" ng-model="course.DepartmentID" required>
+            <md-option ng-repeat="item in departments" value="{{item.ID}}">{{item.Name}}</md-option>
+          </md-select>
+        </md-input-container>
       </div>
 
       <div class="submit-container">

@@ -8,6 +8,7 @@
     function courseAddCtrl($scope, $http, $location, $mdToast) {
 
         $scope.addCourse = addCourse;
+        $scope.departments = [];
 
         function addCourse() {
             $http.post("api/courses/add", $scope.course)
@@ -26,6 +27,14 @@
                     .hideDelay(2000)
             );
         }
+        function loadDepartments() {
+            $http.get("api/departments", null)
+                .then(function (result) {
+                    $scope.departments = result.data;
+                }, function (response) {});
+        }
+
+        loadDepartments();
 
     }
 

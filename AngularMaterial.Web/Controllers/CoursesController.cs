@@ -85,6 +85,7 @@ namespace AngularMaterial.Web.Controllers
                     ID = model.ID,
                     Title = model.Title,
                     Credits = model.Credits,
+                    DepartmentID = model.DepartmentID
                 };
 
                 _courseRepository.Add(course);

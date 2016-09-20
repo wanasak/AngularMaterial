@@ -18,8 +18,8 @@
     </md-toolbar>
 
 
-    <div>
-        <form ng-submit="saveSettings()" ng-cloak style="padding: 0 20px;">
+    <div layout-padding>
+        <form ng-submit="saveSettings()" ng-cloak>
             <p>Current Theme: <span class="radioValue">{{ app.settings.theme }}</span> </p>
 
             <md-radio-group ng-model="selectedTheme">
