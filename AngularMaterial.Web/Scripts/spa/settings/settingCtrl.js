@@ -3,9 +3,9 @@
 
     app.controller('settingCtrl', settingCtrl);
 
-    settingCtrl.$inject = ['$scope', '$mdToast'];
+    settingCtrl.$inject = ['$scope', '$mdToast', '$cookies'];
 
-    function settingCtrl($scope, $mdToast) {
+    function settingCtrl($scope, $mdToast, $cookies) {
 
         $scope.saveSettings = saveSettings;
         $scope.selectedTheme = $scope.$root.app.settings.theme;
@@ -32,6 +32,7 @@
         }
 
         function saveSettings() {
+            $cookies.put('myTheme', $scope.selectedTheme);
             $scope.$root.app.settings.theme = $scope.selectedTheme;
             $mdToast.show(
                 $mdToast.simple()

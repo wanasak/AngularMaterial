@@ -3,14 +3,16 @@
 
     app.controller('rootCtrl', rootCtrl);
 
-    rootCtrl.$inject = ['$scope', '$mdSidenav', '$timeout'];
+    rootCtrl.$inject = ['$scope', '$mdSidenav', '$timeout', '$cookies'];
 
-    function rootCtrl($scope, $mdSidenav, $timeout) {
+    function rootCtrl($scope, $mdSidenav, $timeout, $cookies) {
+
+        var themeCookie = $cookies.get('myTheme');
 
         // App settings
         $scope.$root.app = {
             settings: {
-                theme: 'indigo'
+                theme: themeCookie || 'indigo'
             }
         }
         $scope.toggleLeft = buildToggler('left');

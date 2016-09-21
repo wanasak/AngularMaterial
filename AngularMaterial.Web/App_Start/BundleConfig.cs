@@ -12,7 +12,8 @@ namespace AngularMaterial.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
-                "~/Scripts/vendors/angular-route.js"
+                "~/Scripts/vendors/angular-route.js",
+                "~/Scripts/vendors/angular-cookies.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/spa").Include(
