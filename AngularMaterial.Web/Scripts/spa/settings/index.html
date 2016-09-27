@@ -20,10 +20,10 @@
 
     <div layout-padding>
         <form ng-submit="saveSettings()" ng-cloak>
-            <p>Current Theme: <span class="radioValue">{{ app.settings.theme }}</span> </p>
+            <p>Current Theme: <span class="radioValue">{{ app.settings.theme | capitalize }}</span> </p>
 
             <md-radio-group ng-model="selectedTheme">
-                <md-radio-button value="{{theme}}" ng-repeat="theme in themes">{{theme}}</md-radio-button>
+                <md-radio-button value="{{theme}}" ng-repeat="theme in themes">{{ theme | capitalize }}</md-radio-button>
             </md-radio-group>
 
             <div class="submit-container">

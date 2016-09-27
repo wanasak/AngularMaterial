@@ -69,6 +69,7 @@
 
     function ThemeService() {
         var themes = [
+            'purple',
             'indigo',
             'pink',
             'green',

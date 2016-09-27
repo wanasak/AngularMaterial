@@ -12,7 +12,7 @@
         // App settings
         $scope.$root.app = {
             settings: {
-                theme: themeCookie || 'indigo'
+                theme: themeCookie || 'purple'
             }
         }
         $scope.toggleLeft = buildToggler('left');

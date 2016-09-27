@@ -12,7 +12,7 @@ namespace AngularMaterial.Data.Extensions
     {
         public static bool IsCourseIDExist(this IEntityBaseRepository<Course> courseRepository, int id)
         {
-            return (courseRepository.FindBy(c => c.ID == id) != null);
+            return (courseRepository.FindBy(c => c.ID == id).FirstOrDefault() != null);
         }
     }
 }
