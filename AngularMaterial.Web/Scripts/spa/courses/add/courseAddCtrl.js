@@ -23,7 +23,7 @@
                 $mdToast.simple()
                     //.textContent('Create a new course failed. Please try again.')
                     .textContent(msg)
-                    .position('top rigth')
+                    .position('top right')
                     .hideDelay(2000)
             );
         }
