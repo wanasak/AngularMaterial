@@ -163,6 +163,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Contents\css\site.css" />
+    <Content Include="Contents\img\cmu_logo.png" />
     <Content Include="Contents\img\icons\sets\action-icons.svg" />
     <Content Include="Contents\img\icons\sets\communication-icons.svg" />
     <Content Include="Contents\img\icons\sets\content-icons.svg">

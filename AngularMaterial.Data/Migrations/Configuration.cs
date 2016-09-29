@@ -1,10 +1,11 @@
 namespace AngularMaterial.Data.Migrations
 {
     using AngularMaterial.Entity;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<AngularMaterial.Data.AngularMaterialContext>
     {
@@ -49,16 +50,30 @@ using System.Linq;
                 new Department { Name = "Science", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" }
                 );
             context.SaveChanges();
+            context.InstructorSets.AddOrUpdate(
+                i => i.FirstName,
+                new Instructor { FirstName = "Kim", LastName = "Abercrombie", HireDate = new DateTime(1999, 12, 23)},
+                new Instructor { FirstName = "Fadi", LastName = "Roger", HireDate = new DateTime(2005, 2, 11)},
+                new Instructor { FirstName = "Harui", LastName = "Kapoor", HireDate = new DateTime(1979, 1, 5)},
+                new Instructor { FirstName = "Zheng", LastName = "Hatori", HireDate = new DateTime(2011, 7, 3)},
+                new Instructor { FirstName = "Joe", LastName = "Yung", HireDate = new DateTime(2002, 8, 18)});
+            context.SaveChanges();
             context.CourseSets.AddOrUpdate(
                 c => c.ID,
-                new Course { ID = 1050, Title = "Chemistry", Credits = 3, DepartmentID = 1 },
-                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, DepartmentID = 2 },
-                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, DepartmentID = 3 },
-                new Course { ID = 1045, Title = "Calculus", Credits = 4, DepartmentID = 4 },
-                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, DepartmentID = 5 },
-                new Course { ID = 2021, Title = "Composition", Credits = 3, DepartmentID = 5 },
-                new Course { ID = 2042, Title = "Literature", Credits = 4, DepartmentID = 6 }
+                new Course { ID = 1050, Title = "Chemistry", Credits = 3, DepartmentID = 1, Instructors = new List<Instructor>() },
+                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, DepartmentID = 2, Instructors = new List<Instructor>() },
+                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, DepartmentID = 3, Instructors = new List<Instructor>() },
+                new Course { ID = 1045, Title = "Calculus", Credits = 4, DepartmentID = 4, Instructors = new List<Instructor>() },
+                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, DepartmentID = 5, Instructors = new List<Instructor>() },
+                new Course { ID = 2021, Title = "Composition", Credits = 3, DepartmentID = 5, Instructors = new List<Instructor>() },
+                new Course { ID = 2042, Title = "Literature", Credits = 4, DepartmentID = 6, Instructors = new List<Instructor>() }
                 );
+            context.SaveChanges();
+            AddOrUpdateInstructor(context, "Chemistry", "Abercrombie");
+            AddOrUpdateInstructor(context, "Chemistry", "Kapoor");
+            AddOrUpdateInstructor(context, "Calculus", "Hatori");
+            AddOrUpdateInstructor(context, "Trigonometry", "Yung");
+            AddOrUpdateInstructor(context, "Literature", "Roger");
             context.SaveChanges();
             context.EnrollmentSets.AddOrUpdate(
                 new Enrollment { StudentID = 1, CourseID = 1050, Grade = Grade.A },
@@ -75,6 +90,14 @@ using System.Linq;
                 new Enrollment { StudentID = 7, CourseID = 3141, Grade = Grade.A }
                 );
             context.SaveChanges();
+        }
+
+        private void AddOrUpdateInstructor(AngularMaterialContext context, string courseTitle, string instructorName)
+        {
+            var course = context.CourseSets.SingleOrDefault(c => c.Title == courseTitle);
+            var instructor = context.InstructorSets.SingleOrDefault(i => i.LastName == instructorName);
+            if (instructor != null)
+                course.Instructors.Add(instructor);
         }
     }
 }

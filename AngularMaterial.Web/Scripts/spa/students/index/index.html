@@ -59,6 +59,9 @@
     </div>
   </md-toolbar>
   <!--Content-->
+  <!--<div layout="row" layout-margin layout-align="center center">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>-->
   <md-content flex>
     <md-list>
       <md-list-item class="md-2-line" ng-repeat="item in students | filter: filterStudents" ng-href="#/student/{{ item.ID }}">

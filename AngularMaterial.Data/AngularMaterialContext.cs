@@ -23,6 +23,7 @@ namespace AngularMaterial.Data
         public IDbSet<Course> CourseSets { get; set; }
         public IDbSet<Enrollment> EnrollmentSets { get; set; }
         public IDbSet<Department> DepartmentSets { get; set; }
+        public IDbSet<Instructor> InstructorSets { get; set; }
 
         public virtual void Commit()
         {
@@ -57,6 +58,12 @@ namespace AngularMaterial.Data
                 .Property(c => c.Title)
                 .IsRequired()
                 .HasMaxLength(100);
+            modelBuilder.Entity<Course>()
+                .HasMany(c => c.Instructors)
+                .WithMany(i => i.Courses)
+                .Map(t => t.MapLeftKey("CourseID")
+                    .MapRightKey("InstructorID")
+                    .ToTable("CourseInstructor"));
             // Configuration Department
             modelBuilder.Entity<Department>()
                 .Property(d => d.Name)
@@ -68,6 +75,18 @@ namespace AngularMaterial.Data
                 .HasMaxLength(200);
             modelBuilder.Entity<Department>()
                 .Property(d => d.StartDate)
+                .IsRequired();
+            // Configuration Instructor
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.FirstName)
+                .IsRequired()
+                .HasMaxLength(50);
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.LastName)
+                .IsRequired()
+                .HasMaxLength(50);
+            modelBuilder.Entity<Instructor>()
+                .Property(i => i.HireDate)
                 .IsRequired();
             // Configuration Enrollment
         }
