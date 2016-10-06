@@ -45,6 +45,10 @@
                 templateUrl: "scripts/spa/departments/detail/departmentDetail.html",
                 controller: "departmentDetailCtrl"
             })
+            .when("/chart", {
+                templateUrl: "scripts/spa/charts/index.html",
+                controller: "chartCtrl"
+            })
             .when("/setting", {
                 templateUrl: "scripts/spa/settings/index.html",
                 controller: "settingCtrl"
@@ -54,6 +58,7 @@
         $mdIconProvider
             .iconSet('action', 'contents/img/icons/sets/action-icons.svg', 24)
             .iconSet('social', 'contents/img/icons/sets/social-icons.svg', 24)
+            .iconSet('editor', 'contents/img/icons/sets/editor-icons.svg', 24)
             .iconSet('navigation', 'contents/img/icons/sets/navigation-icons.svg', 24)
             .iconSet('communication', 'contents/img/icons/sets/communication-icons.svg', 24)
             .defaultIconSet('contents/img/icons/sets/content-icons.svg', 24);

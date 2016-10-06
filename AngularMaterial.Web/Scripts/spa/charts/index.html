@@ -1,0 +1,115 @@
+<div ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-href="#/">
+                <md-tooltip>Back</md-tooltip>
+                <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
+            </md-button>
+            <h2>
+                <span>Chart</span>
+            </h2>
+            <span flex></span>
+            <!--<md-button class="md-icon-button" aria-label="More">
+                <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+            </md-button>-->
+            <md-menu>
+                <!-- Trigger element is a md-button with an icon -->
+                <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+                    <md-icon md-svg-icon="navigation:more_vert"></md-icon>
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="doSomething()">Student per Department</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="doSomething()">More</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <!--<div google-chart chart="myChartObject" style="height:300px; width:100%;"></div>-->
+        <div flex-xs flex-gt-xs="33" layout="column">
+            <md-card>
+                <div google-chart chart="myChartObject" style="height:300px; width:100%;"></div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Number of students by department</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-card-icon-actions>
+                        <md-button class="md-icon-button" aria-label="Favorite">
+                            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+                        </md-button>
+                    </md-card-icon-actions>
+                    <md-button>Action 1</md-button>
+                    <md-button>Action 2</md-button>
+                </md-card-actions>
+                <md-card-content>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                        Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="33" layout="column">
+            <md-card>
+                <md-card-header>
+                    <!--<md-card-avatar>
+                        <img src="img/logo.svg" />
+                    </md-card-avatar>-->
+                    <md-card-header-text>
+                        <span class="md-title">Number of students by department</span>
+                        <!--<span class="md-subhead">Material</span>-->
+                    </md-card-header-text>
+                </md-card-header>
+                <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+                </canvas>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Card header</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                        Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex-xs flex-gt-xs="33" layout="column">
+            <md-card>
+                <md-card-header>
+                    <!--<md-card-avatar>
+                        <img src="img/logo.svg" />
+                    </md-card-avatar>-->
+                    <md-card-header-text>
+                        <span class="md-title">Number of students by department</span>
+                        <!--<span class="md-subhead">Material</span>-->
+                    </md-card-header-text>
+                </md-card-header>
+                <canvas id="radar" class="chart chart-radar" chart-data="redar.data" chart-options="options" chart-labels="redar.labels">
+                </canvas>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Card header</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
+                        Greene's musical language: feel it. It's a simple request, as well...
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>

@@ -18,7 +18,7 @@
     </md-toolbar>
 
 
-    <div layout-padding>
+    <md-content class="md-padding" layout-xs="column" layout="row">
         <form ng-submit="saveSettings()" ng-cloak>
             <p>Current Theme: <span class="radioValue">{{ app.settings.theme | capitalize }}</span> </p>
 
@@ -31,7 +31,7 @@
             </div>
 
         </form>
-    </div>
+    </md-content>
 
 
 </div>

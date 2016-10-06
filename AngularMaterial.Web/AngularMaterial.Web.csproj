@@ -169,11 +169,13 @@
     <Content Include="Contents\img\icons\sets\content-icons.svg">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Contents\img\icons\sets\editor-icons.svg" />
     <Content Include="Contents\img\icons\sets\navigation-icons.svg" />
     <Content Include="Contents\img\icons\sets\social-icons.svg" />
     <Content Include="Contents\img\ic_bookmark_border_black_48px.svg" />
     <Content Include="Contents\img\ic_face_black_48px.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\vendors\angular-chart.js" />
     <Content Include="Scripts\vendors\angular-cookies.js" />
     <Content Include="Scripts\vendors\angular-route.js" />
     <Content Include="Web.config" />

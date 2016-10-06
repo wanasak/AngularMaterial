@@ -13,7 +13,8 @@ namespace AngularMaterial.Web
         {
             bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
                 "~/Scripts/vendors/angular-route.js",
-                "~/Scripts/vendors/angular-cookies.js"
+                "~/Scripts/vendors/angular-cookies.js",
+                "~/Scripts/vendors/angular-chart.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/spa").Include(
@@ -25,6 +26,7 @@ namespace AngularMaterial.Web
                 "~/Scripts/spa/courses/detail/courseDetailCtrl.js",
                 "~/Scripts/spa/courses/add/courseAddCtrl.js",
                 "~/Scripts/spa/settings/settingCtrl.js",
+                "~/Scripts/spa/charts/chartCtrl.js",
                 "~/Scripts/spa/home/indexCtrl.js",
                 "~/Scripts/spa/home/rootCtrl.js",
                 "~/Scripts/spa/departments/index/departmentCtrl.js",
