@@ -3,9 +3,9 @@
 
     app.controller('chartCtrl', chartCtrl);
 
-    chartCtrl.$inject = ['$scope'];
+    chartCtrl.$inject = ['$scope', '$http'];
 
-    function chartCtrl($scope) {
+    function chartCtrl($scope, $http) {
 
         // Google Angular Chart
         $scope.myChartObject = {};
@@ -51,9 +51,20 @@
         };
 
         // Angular Chart 
-        $scope.labels = ["Accounting", "Nurse", "Engineering", "Economic", "Medicine", "Science"];
-        $scope.data = [2, 5, 8, 1, 4, 10];
-
+        $scope.enrollmentStudentGoup = {
+            labels: [],
+            data: []
+        };
+        function loadEnrollmentStudentGroup() {
+            $http.get("api/enrollments", null)
+                .then(function (result) {
+                    for (var i = 0, len = result.data.length; i < len; i++) {
+                        $scope.enrollmentStudentGoup.labels.push('Course ID ' + result.data[i].CourseID);
+                        $scope.enrollmentStudentGoup.data.push(result.data[i].StudentCount);
+                    }
+                }, function (response) {});
+        }
+        loadEnrollmentStudentGroup();
         // var test = [
         //     {id: 1, text: "aaa"},
         //     {id: 2, text: "bbb"},
