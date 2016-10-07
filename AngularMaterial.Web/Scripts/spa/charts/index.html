@@ -1,5 +1,5 @@
-<div ng-cloak>
-    <md-toolbar>
+<div layout="column" ng-cloak>
+    <md-toolbar md-whiteframe="6">
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings" ng-href="#/">
                 <md-tooltip>Back</md-tooltip>
@@ -9,9 +9,6 @@
                 <span>Chart</span>
             </h2>
             <span flex></span>
-            <!--<md-button class="md-icon-button" aria-label="More">
-                <md-icon md-svg-icon="navigation:more_vert"></md-icon>
-            </md-button>-->
             <md-menu>
                 <!-- Trigger element is a md-button with an icon -->
                 <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
@@ -19,7 +16,10 @@
                 </md-button>
                 <md-menu-content>
                     <md-menu-item>
-                        <md-button ng-click="doSomething()">Student per Department</md-button>
+                        <md-button ng-click="doSomething()">Enrollment by Course ID</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>Student Grade</md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="doSomething()">More</md-button>
@@ -28,10 +28,9 @@
             </md-menu>
         </div>
     </md-toolbar>
-
-    <md-content class="md-padding" layout-xs="column" layout="row">
+    <md-content class="md-padding" layout="row" layout-xs="column">
         <!--<div google-chart chart="myChartObject" style="height:300px; width:100%;"></div>-->
-        <div flex-xs flex-gt-xs="33" layout="column">
+        <!--<div flex-xs flex-gt-xs="33" layout="column">
             <md-card>
                 <div google-chart chart="myChartObject" style="height:300px; width:100%;"></div>
                 <md-card-title>
@@ -58,8 +57,8 @@
                     </p>
                 </md-card-content>
             </md-card>
-        </div>
-        <div flex-xs flex-gt-xs="33" layout="column">
+        </div>-->
+        <div flex-xs flex-gt-xs="50">
             <md-card>
                 <md-card-header>
                     <!--<md-card-avatar>
@@ -85,14 +84,14 @@
                 </md-card-content>
             </md-card>
         </div>
-        <div flex-xs flex-gt-xs="33" layout="column">
+        <div flex-xs flex-gt-xs="50">
             <md-card>
                 <md-card-header>
                     <!--<md-card-avatar>
                         <img src="img/logo.svg" />
                     </md-card-avatar>-->
                     <md-card-header-text>
-                        <span class="md-title">Number of students by department</span>
+                        <span class="md-title">Student Grade</span>
                         <!--<span class="md-subhead">Material</span>-->
                     </md-card-header-text>
                 </md-card-header>

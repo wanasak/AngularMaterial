@@ -58,21 +58,17 @@
         function loadEnrollmentStudentGroup() {
             $http.get("api/enrollments", null)
                 .then(function (result) {
-                    for (var i = 0, len = result.data.length; i < len; i++) {
-                        $scope.enrollmentStudentGoup.labels.push('Course ID ' + result.data[i].CourseID);
-                        $scope.enrollmentStudentGoup.data.push(result.data[i].StudentCount);
-                    }
+                    result.data.map(function (val, index) {
+                        $scope.enrollmentStudentGoup.labels[index] = 'Course ID ' + val.CourseID;
+                        $scope.enrollmentStudentGoup.data[index] = val.StudentCount;
+                        console.log(index);
+                    });
+                    // for (var i = 0, len = result.data.length; i < len; i++) {
+                    //     $scope.enrollmentStudentGoup.labels.push('Course ID ' + result.data[i].CourseID);
+                    //     $scope.enrollmentStudentGoup.data.push(result.data[i].StudentCount);
+                    // }
                 }, function (response) {});
         }
-        loadEnrollmentStudentGroup();
-        // var test = [
-        //     {id: 1, text: "aaa"},
-        //     {id: 2, text: "bbb"},
-        // ];
-
-        // for (var i = 0, len = test.length; i < len; i++) {
-        //     alert(test[i].text);
-        // }
 
         // Angular Chart - Redar
         $scope.redar = {};
@@ -81,6 +77,9 @@
         $scope.redar.data = [
             [65, 59, 90, 81, 56, 55, 40]
         ];
+
+
+        loadEnrollmentStudentGroup();
     }
 
 })(angular.module('angularMaterial'));
