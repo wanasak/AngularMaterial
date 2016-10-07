@@ -69,7 +69,7 @@
                         <!--<span class="md-subhead">Material</span>-->
                     </md-card-header-text>
                 </md-card-header>
-                <canvas id="doughnut" class="chart chart-doughnut" chart-data="enrollmentStudentGoup.data" chart-labels="enrollmentStudentGoup.labels">
+                <canvas id="doughnut" class="chart chart-doughnut" chart-data="enrollmentStudentCount.data" chart-labels="enrollmentStudentCount.labels">
                 </canvas>
                 <md-card-title>
                     <md-card-title-text>
@@ -82,6 +82,16 @@
                         Greene's musical language: feel it. It's a simple request, as well...
                     </p>
                 </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-tooltip>Refresh</md-tooltip>
+                        <md-icon md-svg-icon="navigation:refresh"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <md-tooltip>Print</md-tooltip>
+                        <md-icon md-svg-icon="action:print"></md-icon>
+                    </md-button>
+                </md-card-
             </md-card>
         </div>
         <div flex-xs flex-gt-xs="50">
@@ -95,19 +105,29 @@
                         <!--<span class="md-subhead">Material</span>-->
                     </md-card-header-text>
                 </md-card-header>
-                <canvas id="radar" class="chart chart-radar" chart-data="redar.data" chart-options="options" chart-labels="redar.labels">
+                <canvas id="bar" class="chart chart-bar" chart-data="enrollmentStudentGrade.data" chart-options="enrollmentStudentGrade.options"
+                    chart-labels="enrollmentStudentGrade.labels">
                 </canvas>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Card header</span>
+                        <span class="md-headline">Andrew Peters</span>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
                     <p>
-                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                        Greene's musical language: feel it. It's a simple request, as well...
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                     </p>
                 </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button">
+                        <md-tooltip>Refresh</md-tooltip>
+                        <md-icon md-svg-icon="navigation:refresh"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button">
+                        <md-tooltip>Print</md-tooltip>
+                        <md-icon md-svg-icon="action:print"></md-icon>
+                    </md-button>
+                </md-card-actions>
             </md-card>
         </div>
     </md-content>

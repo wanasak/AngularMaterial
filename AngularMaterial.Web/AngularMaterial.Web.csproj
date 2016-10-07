@@ -154,6 +154,7 @@
     </Compile>
     <Compile Include="Models\CourseDTO.cs" />
     <Compile Include="Models\DepartmentDTO.cs" />
+    <Compile Include="Models\EnrollmentByStudentIDDTO.cs" />
     <Compile Include="Models\EnrollmentDTO.cs" />
     <Compile Include="Models\EnrollmentStudentCount.cs" />
     <Compile Include="Models\StudentDetailDTO.cs" />

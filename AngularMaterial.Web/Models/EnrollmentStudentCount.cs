@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AngularMaterial.Web.Models
 {
-    public class EnrollmentStudentGroupDTO
+    public class EnrollmentStudentCountDTO
     {
         public int CourseID { get; set; }
         public int StudentCount { get; set; }

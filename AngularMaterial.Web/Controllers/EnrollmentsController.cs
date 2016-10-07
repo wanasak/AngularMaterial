@@ -23,19 +23,42 @@ namespace AngularMaterial.Web.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage EnrollmentStudentGroup(HttpRequestMessage request)
+        public HttpResponseMessage EnrollmentStudentCount(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 var group = from e in _enrollmentRepository.GetAll()
                             group e by e.CourseID into g
-                            select new EnrollmentStudentGroupDTO
+                            select new EnrollmentStudentCountDTO
                             {
                                 CourseID = g.Key,
                                 StudentCount = g.Count()
                             };
                 response = request.CreateResponse(HttpStatusCode.OK, group);
+                return response;
+            });
+        }
+
+        [HttpGet]
+        [Route("student/{studentID:int}")]
+        public HttpResponseMessage EnrollmentByStudentID(HttpRequestMessage request, int studentID)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                var enrollment = _enrollmentRepository
+                    .AllIncluding(e => e.Course)
+                    .Where(e => e.StudentID == studentID)
+                    .Select(e => new EnrollmentByStudentIDDTO()
+                    {
+                        GradePoint = 4 - (int)e.Grade,
+                        CourseTitle = e.Course.Title,
+                    });
+
+                response = request.CreateResponse(HttpStatusCode.OK, enrollment);
+
                 return response;
             });
         }

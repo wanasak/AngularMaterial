@@ -51,7 +51,7 @@
         };
 
         // Angular Chart 
-        $scope.enrollmentStudentGoup = {
+        $scope.enrollmentStudentCount = {
             labels: [],
             data: []
         };
@@ -59,27 +59,44 @@
             $http.get("api/enrollments", null)
                 .then(function (result) {
                     result.data.map(function (val, index) {
-                        $scope.enrollmentStudentGoup.labels[index] = 'Course ID ' + val.CourseID;
-                        $scope.enrollmentStudentGoup.data[index] = val.StudentCount;
-                        console.log(index);
+                        $scope.enrollmentStudentCount.labels[index] = 'Course ID ' + val.CourseID;
+                        $scope.enrollmentStudentCount.data[index] = val.StudentCount;
                     });
                     // for (var i = 0, len = result.data.length; i < len; i++) {
                     //     $scope.enrollmentStudentGoup.labels.push('Course ID ' + result.data[i].CourseID);
                     //     $scope.enrollmentStudentGoup.data.push(result.data[i].StudentCount);
                     // }
-                }, function (response) {});
+                }, function (response) { });
         }
 
         // Angular Chart - Redar
-        $scope.redar = {};
-        $scope.redar.labels = ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
-
-        $scope.redar.data = [
-            [65, 59, 90, 81, 56, 55, 40]
-        ];
-
+        $scope.enrollmentStudentGrade = {
+            labels: [],
+            data: [],
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 4,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        }
+        function loadenrollmentStudentGrade() {
+            $http.get("api/enrollments/student/1", null)
+                .then(function (result) {
+                    result.data.map(function (val, index) {
+                        $scope.enrollmentStudentGrade.labels[index] = val.CourseTitle;
+                        $scope.enrollmentStudentGrade.data[index] = val.GradePoint;
+                    });
+                }, function (response) { });
+        }
 
         loadEnrollmentStudentGroup();
+        loadenrollmentStudentGrade();
     }
 
 })(angular.module('angularMaterial'));
