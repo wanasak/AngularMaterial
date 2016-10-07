@@ -29,11 +29,13 @@ namespace AngularMaterial.Web.Controllers
             {
                 HttpResponseMessage response = null;
 
-                var departments = _departmentRepository.GetAll().Select(d => new DepartmentDTO()
-                {
-                    ID = d.ID,
-                    Name = d.Name
-                });
+                var departments = _departmentRepository.GetAll()
+                    .OrderBy(d => d.Name)
+                    .Select(d => new DepartmentDTO()
+                    {
+                        ID = d.ID,
+                        Name = d.Name
+                    });
 
                 response = request.CreateResponse(HttpStatusCode.OK, departments);
 
