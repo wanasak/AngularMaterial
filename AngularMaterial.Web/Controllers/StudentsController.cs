@@ -1,6 +1,7 @@
 ﻿using AngularMaterial.Data.Repositories;
 using AngularMaterial.Entity;
 using AngularMaterial.Web.Models;
+using AngularMaterial.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,22 +24,42 @@ namespace AngularMaterial.Web.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Students(HttpRequestMessage request)
+        [Route("{filter?}")]
+        public HttpResponseMessage Students(HttpRequestMessage request, string filter = null)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
 
-                var students = _studentRepository
+                IEnumerable<StudentDTO> students;
+
+                if (string.IsNullOrEmpty(filter))
+                {
+                    students = _studentRepository
                     .GetAll()
                     .Select(s => new StudentDTO()
                     {
                         ID = s.ID,
                         FirstName = s.FirstName,
                         LastName = s.LastName,
-                        Email = s.Email,
                         Image = s.Image
                     });
+                }
+                else
+                {
+                    students = _studentRepository
+                        .GetAll()
+                        .Where(s =>
+                            s.FirstName.ToLower().Contains(filter.ToLower().Trim()) ||
+                            s.LastName.ToLower().Contains(filter.ToLower().Trim()))
+                        .Select(s => new StudentDTO()
+                        {
+                            ID = s.ID,
+                            FirstName = s.FirstName,
+                            LastName = s.LastName,
+                            Image = s.Image
+                        });
+                }
 
                 response = request.CreateResponse(HttpStatusCode.OK, students);
 

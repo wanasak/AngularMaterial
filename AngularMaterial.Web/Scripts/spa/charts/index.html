@@ -91,8 +91,7 @@
                         <md-tooltip>Print</md-tooltip>
                         <md-icon md-svg-icon="action:print"></md-icon>
                     </md-button>
-                </md-card-
-            </md-card>
+                    </md-card- </md-card>
         </div>
         <div flex-xs flex-gt-xs="50">
             <md-card>
@@ -102,20 +101,33 @@
                     </md-card-avatar>-->
                     <md-card-header-text>
                         <span class="md-title">Student Grade</span>
-                        <!--<span class="md-subhead">Material</span>-->
                     </md-card-header-text>
                 </md-card-header>
-                <canvas id="bar" class="chart chart-bar" chart-data="enrollmentStudentGrade.data" chart-options="enrollmentStudentGrade.options"
-                    chart-labels="enrollmentStudentGrade.labels">
-                </canvas>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Andrew Peters</span>
+                        <!--<span class="md-headline">Andrew Peters</span>-->
+                        <form ng-submit="$event.preventDefault()">
+                            <md-autocomplete md-min-length="0" md-selected-item-change="selectedStudentChange(item)" 
+                                md-search-text="searchTextStudents" md-items="item in searchStudents(searchTextStudents)" md-item-text="item.display" placeholder="Search student here...">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No students matching "{{ searchTextStudents }}" were found.
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
+                    <canvas ng-show="enrollmentStudentGrade.labels.length > 0" id="bar" class="chart chart-bar" chart-data="enrollmentStudentGrade.data"
+                        chart-options="enrollmentStudentGrade.options" chart-labels="enrollmentStudentGrade.labels">
+                    </canvas>
+                    <p ng-show="isNoGrade">{{searchTextStudents}} has no grade yet.</p>
                     <p>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                        ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
+                        odio dui.
                     </p>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">

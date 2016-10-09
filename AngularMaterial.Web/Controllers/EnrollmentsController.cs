@@ -50,7 +50,7 @@ namespace AngularMaterial.Web.Controllers
 
                 var enrollment = _enrollmentRepository
                     .AllIncluding(e => e.Course)
-                    .Where(e => e.StudentID == studentID)
+                    .Where(e => e.StudentID == studentID && e.Grade.HasValue)
                     .Select(e => new EnrollmentByStudentIDDTO()
                     {
                         GradePoint = 4 - (int)e.Grade,
