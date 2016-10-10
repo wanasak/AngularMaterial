@@ -22,22 +22,18 @@
                 list.push(item);
             }
         };
-
         $scope.exists = function (item, list) {
             //console.log(item);
             //console.log(list.indexOf(item) > -1);
             return list.indexOf(item) > -1;
         };
-
         $scope.isIndeterminate = function () {
             return ($scope.student.Courses.length !== 0 &&
                 $scope.student.Courses.length !== $scope.courses.length);
         };
-
         $scope.isChecked = function () {
             return $scope.student.Courses.length === $scope.courses.length;
         };
-
         $scope.toggleAll = function () {
             if ($scope.student.Courses.length === $scope.courses.length) {
                 $scope.student.Courses = [];

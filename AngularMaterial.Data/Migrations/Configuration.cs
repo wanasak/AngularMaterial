@@ -48,18 +48,27 @@ namespace AngularMaterial.Data.Migrations
             context.SaveChanges();
             context.DepartmentSets.AddOrUpdate(
                 d => d.Name,
-                new Department { Name = "Human", StartDate = new DateTime(1999, 10, 1), Address = "56 Navigation St, Birmingham B2 4BT, UK" },
-                new Department { Name = "Education", StartDate = new DateTime(1990, 4, 30), Address = "17 Victoria Rd, Salford M6 8FZ, UK" },
-                new Department { Name = "Fineart", StartDate = new DateTime(1987, 11, 28), Address = "176 Oxford Rd, Manchester M13 9QQ, UK" },
-                new Department { Name = "Science", StartDate = new DateTime(1979, 3, 4), Address = "2-3 Brunswick Pl, Southampton SO15 2AN, UK" },
-                new Department { Name = "Engineering", StartDate = new DateTime(1955, 1, 21), Address = "Laurel Rd, Ferryhill DL17 0DW, UK" },
-                new Department { Name = "Medicine", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Nurse", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Economic", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Camt", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Dentist", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Law", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
-                new Department { Name = "Pharmacy", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" }
+                new Department { Code="01", Name = "HUMANITIES", StartDate = new DateTime(1999, 10, 1), Address = "56 Navigation St, Birmingham B2 4BT, UK" },
+                new Department { Code = "02", Name = "EDUCATION", StartDate = new DateTime(1990, 4, 30), Address = "17 Victoria Rd, Salford M6 8FZ, UK" },
+                new Department { Code = "03", Name = "FINE ARTS", StartDate = new DateTime(1987, 11, 28), Address = "176 Oxford Rd, Manchester M13 9QQ, UK" },
+                new Department { Code = "04", Name = "SOCIAL SCIENCES", StartDate = new DateTime(1979, 3, 4), Address = "2-3 Brunswick Pl, Southampton SO15 2AN, UK" },
+                new Department { Code = "05", Name = "SCIENCE", StartDate = new DateTime(1955, 1, 21), Address = "Laurel Rd, Ferryhill DL17 0DW, UK" },
+                new Department { Code = "06", Name = "ENGINEERING", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "07", Name = "MEDICINE", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "08", Name = "AGRICULTURE", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "09", Name = "DENTISTRY", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "10", Name = "PHARMACY", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "11", Name = "ASSOCIATED MEDICAL SCIENCES", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "12", Name = "NURSING", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "13", Name = "AGRO-INDUSTRY", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "14", Name = "VETERINARY MEDICINE", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "15", Name = "BUSINESS ADMINISTRATION", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "16", Name = "ECONOMICS", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "17", Name = "ARCHITECTURE", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "18", Name = "MASS COMMUNICATION", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "19", Name = "POL SCI and PA", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "20", Name = "LAW", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
+                new Department { Code = "21", Name = "ARTS, MEDIA AND TECHNOLOGY", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" }
                 );
             context.SaveChanges();
             context.InstructorSets.AddOrUpdate(

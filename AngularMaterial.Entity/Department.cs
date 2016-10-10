@@ -9,6 +9,7 @@ namespace AngularMaterial.Entity
     public class Department : IEntityBase
     {
         public int ID { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public string Address { get; set; }

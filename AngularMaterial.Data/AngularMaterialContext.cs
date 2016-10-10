@@ -67,6 +67,10 @@ namespace AngularMaterial.Data
                     .ToTable("CourseInstructor"));
             // Configuration Department
             modelBuilder.Entity<Department>()
+                .Property(d => d.Code)
+                .IsRequired()
+                .HasMaxLength(3);
+            modelBuilder.Entity<Department>()
                 .Property(d => d.Name)
                 .IsRequired()
                 .HasMaxLength(50);
