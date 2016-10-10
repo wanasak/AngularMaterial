@@ -37,7 +37,13 @@ namespace AngularMaterial.Data.Migrations
                 new Student { FirstName = "Peggy", LastName = "Justice", Image = "ic_face_black_48px.svg", Email = "xyz@gmail.com" },
                 new Student { FirstName = "Alan", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "qwerty@gmail.com" },
                 new Student { FirstName = "Yan", LastName = "Li", Image = "ic_face_black_48px.svg", Email = "yan_li@facebook.com" },
-                new Student { FirstName = "Nino", LastName = "Olivetto", Image = "ic_face_black_48px.svg", Email = "nino2008@gmail.com" }
+                new Student { FirstName = "Nino", LastName = "Olivetto", Image = "ic_face_black_48px.svg", Email = "nino2008@gmail.com" },
+                new Student { FirstName = "Brown", LastName = "Eyes", Image = "ic_face_black_48px.svg", Email = "brow45@gmail.com" },
+                new Student { FirstName = "David", LastName = "Backham", Image = "ic_face_black_48px.svg", Email = "qwerty1234@gmail.com" },
+                new Student { FirstName = "Antonio", LastName = "John", Image = "ic_face_black_48px.svg", Email = "aj@hotmail.com" },
+                new Student { FirstName = "Cory", LastName = "Ruphert", Image = "ic_face_black_48px.svg", Email = "cc_1@gmail.com" },
+                new Student { FirstName = "Sam", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "sam_s@yahoo.com" },
+                new Student { FirstName = "Linda", LastName = "Joshep", Image = "ic_face_black_48px.svg", Email = "linda@gmail.com" }
                 );
             context.SaveChanges();
             context.DepartmentSets.AddOrUpdate(
@@ -85,6 +91,8 @@ namespace AngularMaterial.Data.Migrations
                 new Enrollment { StudentID = 1, CourseID = 1050, Grade = Grade.A },
                 new Enrollment { StudentID = 1, CourseID = 4022, Grade = Grade.C },
                 new Enrollment { StudentID = 1, CourseID = 4041, Grade = Grade.B },
+                new Enrollment { StudentID = 1, CourseID = 2021, Grade = Grade.B },
+                new Enrollment { StudentID = 1, CourseID = 2042, Grade = Grade.D },
                 new Enrollment { StudentID = 2, CourseID = 1045, Grade = Grade.B },
                 new Enrollment { StudentID = 2, CourseID = 3141, Grade = Grade.F },
                 new Enrollment { StudentID = 2, CourseID = 2021, Grade = Grade.F },
@@ -93,7 +101,11 @@ namespace AngularMaterial.Data.Migrations
                 new Enrollment { StudentID = 4, CourseID = 4022, Grade = Grade.F },
                 new Enrollment { StudentID = 5, CourseID = 4041, Grade = Grade.C },
                 new Enrollment { StudentID = 6, CourseID = 1045 },
-                new Enrollment { StudentID = 7, CourseID = 3141, Grade = Grade.A }
+                new Enrollment { StudentID = 7, CourseID = 3141, Grade = Grade.A },
+                new Enrollment { StudentID = 9, CourseID = 1045, Grade = Grade.A },
+                new Enrollment { StudentID = 9, CourseID = 4022, Grade = Grade.B },
+                new Enrollment { StudentID = 9, CourseID = 2021, Grade = Grade.A },
+                new Enrollment { StudentID = 9, CourseID = 1050, Grade = Grade.A }
                 );
             context.SaveChanges();
         }

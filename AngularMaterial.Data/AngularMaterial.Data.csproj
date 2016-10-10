@@ -50,6 +50,10 @@
   <ItemGroup>
     <Compile Include="AngularMaterialContext.cs" />
     <Compile Include="Extensions\CourseExtension.cs" />
+    <Compile Include="Migrations\201610100654204_initial.cs" />
+    <Compile Include="Migrations\201610100654204_initial.Designer.cs">
+      <DependentUpon>201610100654204_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityBaseRepository.cs" />
@@ -64,6 +68,11 @@
       <Project>{53a41d45-005f-418b-a00c-a080f3bc4069}</Project>
       <Name>AngularMaterial.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610100654204_initial.resx">
+      <DependentUpon>201610100654204_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

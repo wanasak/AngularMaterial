@@ -12,7 +12,7 @@
             labels: [],
             data: []
         };
-        // Angular Chart - Redar
+        // Angular Chart - Bar
         $scope.enrollmentStudentGrade = {
             labels: [],
             data: [],
@@ -56,6 +56,7 @@
         function loadEnrollmentStudentCount() {
             $http.get("api/enrollments", null)
                 .then(function (result) {
+                    
                     result.data.map(function (val, index) {
                         $scope.enrollmentStudentCount.labels[index] = 'Course ID ' + val.CourseID;
                         $scope.enrollmentStudentCount.data[index] = val.StudentCount;

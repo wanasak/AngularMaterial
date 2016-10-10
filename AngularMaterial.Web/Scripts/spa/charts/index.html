@@ -1,9 +1,9 @@
 <div layout="column" ng-cloak>
     <md-toolbar md-whiteframe="6">
         <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Settings" ng-href="#/">
-                <md-tooltip>Back</md-tooltip>
-                <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
+            <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
+                <md-tooltip>Menu</md-tooltip>
+                <md-icon md-svg-icon="navigation:menu"></md-icon>
             </md-button>
             <h2>
                 <span>Chart</span>
@@ -83,7 +83,7 @@
                     </p>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Settings">
+                    <md-button class="md-icon-button" aria-label="Refresh">
                         <md-tooltip>Refresh</md-tooltip>
                         <md-icon md-svg-icon="navigation:refresh"></md-icon>
                     </md-button>
@@ -91,7 +91,8 @@
                         <md-tooltip>Print</md-tooltip>
                         <md-icon md-svg-icon="action:print"></md-icon>
                     </md-button>
-                    </md-card- </md-card>
+                </md-card-actions>
+            </md-card>
         </div>
         <div flex-xs flex-gt-xs="50">
             <md-card>
@@ -107,8 +108,8 @@
                     <md-card-title-text>
                         <!--<span class="md-headline">Andrew Peters</span>-->
                         <form ng-submit="$event.preventDefault()">
-                            <md-autocomplete md-min-length="0" md-selected-item-change="selectedStudentChange(item)" 
-                                md-search-text="searchTextStudents" md-items="item in searchStudents(searchTextStudents)" md-item-text="item.display" placeholder="Search student here...">
+                            <md-autocomplete md-min-length="0" md-selected-item-change="selectedStudentChange(item)" md-search-text="searchTextStudents"
+                                md-items="item in searchStudents(searchTextStudents)" md-item-text="item.display" placeholder="Search student here...">
                                 <md-item-template>
                                     <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
                                 </md-item-template>
@@ -131,10 +132,10 @@
                     </p>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button">
+                    <!--<md-button class="md-icon-button">
                         <md-tooltip>Refresh</md-tooltip>
                         <md-icon md-svg-icon="navigation:refresh"></md-icon>
-                    </md-button>
+                    </md-button>-->
                     <md-button class="md-icon-button">
                         <md-tooltip>Print</md-tooltip>
                         <md-icon md-svg-icon="action:print"></md-icon>
