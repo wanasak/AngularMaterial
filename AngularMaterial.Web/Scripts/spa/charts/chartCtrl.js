@@ -82,7 +82,7 @@
         function createFilterFor(query) {
             var lowercaseQuery = angular.lowercase(query);
             return function filterFn(student) {
-                return (student.display.toLowerCase().indexOf(lowercaseQuery) === 0);
+                return (student.display.toLowerCase().indexOf(lowercaseQuery) > -1);
             }
         }
 

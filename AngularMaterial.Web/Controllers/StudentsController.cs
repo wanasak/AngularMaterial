@@ -15,12 +15,15 @@ namespace AngularMaterial.Web.Controllers
     public class StudentsController : ApiControllerBase
     {
         private readonly IEntityBaseRepository<Student> _studentRepository;
+        private readonly IEntityBaseRepository<Enrollment> _enrollmentRepository;
 
         public StudentsController(
-            IEntityBaseRepository<Student> studentRepository)
+            IEntityBaseRepository<Student> studentRepository,
+            IEntityBaseRepository<Enrollment> enrollmentRepository)
             : base()
         {
             _studentRepository = studentRepository;
+            _enrollmentRepository = enrollmentRepository;
         }
 
         [HttpGet]
@@ -141,6 +144,16 @@ namespace AngularMaterial.Web.Controllers
                 };
 
                 _studentRepository.Add(student);
+
+                foreach (var courseID in model.Courses)
+                {
+                    var enrollment = new Enrollment()
+                    {
+                        CourseID = courseID,
+                        StudentID = student.ID
+                    };
+                    _enrollmentRepository.Add(enrollment);
+                }
 
                 response = request.CreateResponse(HttpStatusCode.OK);
 

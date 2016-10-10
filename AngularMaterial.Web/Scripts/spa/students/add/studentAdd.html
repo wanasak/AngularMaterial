@@ -13,10 +13,11 @@
   </md-toolbar>
 
   <md-content layout-padding>
-    
+
     <form name="studentForm" ng-submit="addStudent()">
       <p class="md-title">Student Info</p>
       <div layout-gt-sm="row">
+        <!-- FirstName -->
         <md-input-container class="md-block" flex-gt-sm>
           <label>First Name</label>
           <input required name="FirstName" ng-model="student.FirstName" md-maxlength="50">
@@ -25,7 +26,7 @@
             <div ng-message="md-maxlength">The first name must be less than 50 characters long.</div>
           </div>
         </md-input-container>
-
+        <!-- LastName -->
         <md-input-container class="md-block" flex-gt-sm>
           <label>Last Name</label>
           <input required name="LastName" ng-model="student.LastName" md-maxlength="50">
@@ -34,23 +35,40 @@
             <div ng-message="md-maxlength">The last name must be less than 50 characters long.</div>
           </div>
         </md-input-container>
+        <!-- Email -->
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Email</label>
+          <input required type="email" name="Email" ng-model="student.Email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+          />
+          <div ng-messages="studentForm.Email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Your email must be between 10 and 100 characters long and look like an e-mail address.
+            </div>
+          </div>
+        </md-input-container>
       </div>
 
-      <md-input-container class="md-block">
-        <label>Email</label>
-        <input required type="email" name="Email" ng-model="student.Email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
-        />
-
-        <div ng-messages="studentForm.Email.$error" role="alert">
-          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-            Your email must be between 10 and 100 characters long and look like an e-mail address.
+      <!-- Courses -->
+      <div>
+        <fieldset class="demo-fieldset">
+          <legend class="demo-legend"> Courses </legend>
+          <div layout="row" layout-wrap flex>
+            <div flex-xs flex="100">
+              <md-checkbox class="md-primary" aria-label="Select All" ng-checked="isChecked()" md-indeterminate="isIndeterminate()" ng-click="toggleAll()">
+                <span ng-if="isChecked()">Un-</span>Select All
+              </md-checkbox>
+            </div>
+            <div class="demo-select-all-checkboxes" flex="50" ng-repeat="item in courses">
+              <md-checkbox class="md-primary" ng-checked="exists(item.ID, student.Courses)" ng-click="toggle(item.ID, student.Courses)">
+                {{ item.Title }}
+              </md-checkbox>
+            </div>
           </div>
-        </div>
-      </md-input-container>
+        </fieldset>
+      </div>
 
       <div class="submit-container">
         <md-button type="submit" class="md-raised md-primary">Submit</md-button>
-        <!--<md-button md-no-ink="" class="md-primary">Submit</md-button>-->
       </div>
 
     </form>
