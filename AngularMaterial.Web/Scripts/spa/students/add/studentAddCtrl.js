@@ -12,7 +12,6 @@
         };
         $scope.addStudent = addStudent;
         $scope.courses = [];
-        //$scope.student.Courses = [];
         $scope.toggle = function (item, list) {
             var idx = list.indexOf(item);
             if (idx > -1) {
@@ -23,8 +22,6 @@
             }
         };
         $scope.exists = function (item, list) {
-            //console.log(item);
-            //console.log(list.indexOf(item) > -1);
             return list.indexOf(item) > -1;
         };
         $scope.isIndeterminate = function () {
@@ -46,7 +43,7 @@
         };
 
         function addStudent() {
-            console.log(JSON.stringify($scope.student));
+            //console.log(JSON.stringify($scope.student));
             $http.post("api/students/add", $scope.student)
                 .then(function (result) {
                     $location.path("/student");
