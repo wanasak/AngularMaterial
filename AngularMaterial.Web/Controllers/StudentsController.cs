@@ -1,8 +1,6 @@
 ﻿using AngularMaterial.Data.Repositories;
 using AngularMaterial.Entity;
 using AngularMaterial.Web.Models;
-using AngularMaterial.Data.Extensions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
