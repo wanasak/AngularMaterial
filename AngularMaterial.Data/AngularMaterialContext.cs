@@ -25,6 +25,7 @@ namespace AngularMaterial.Data
         public IDbSet<Enrollment> EnrollmentSets { get; set; }
         public IDbSet<Department> DepartmentSets { get; set; }
         public IDbSet<Instructor> InstructorSets { get; set; }
+        public IDbSet<CourseInstructor> CourseInstructorSets { get; set; }
 
         public virtual void Commit()
         {
@@ -59,12 +60,12 @@ namespace AngularMaterial.Data
                 .Property(c => c.Title)
                 .IsRequired()
                 .HasMaxLength(100);
-            modelBuilder.Entity<Course>()
-                .HasMany(c => c.Instructors)
-                .WithMany(i => i.Courses)
-                .Map(t => t.MapLeftKey("CourseID")
-                    .MapRightKey("InstructorID")
-                    .ToTable("CourseInstructor"));
+            //modelBuilder.Entity<Course>()
+            //    .HasMany(c => c.Instructors)
+            //    .WithMany(i => i.Courses)
+            //    .Map(t => t.MapLeftKey("CourseID")
+            //        .MapRightKey("InstructorID")
+            //        .ToTable("CourseInstructor"));
             // Configuration Department
             modelBuilder.Entity<Department>()
                 .Property(d => d.Code)

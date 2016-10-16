@@ -1,59 +1,84 @@
 <div layout="column" ng-cloak>
 
-  <md-toolbar md-whiteframe="6">
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Menu" ng-href="#/course">
-        <md-tooltip>Back</md-tooltip>
-        <md-icon md-svg-icon="navigation:arrow_back"></md-icon>
-      </md-button>
-      <h3>
-        <span>Create Course</span>
-      </h3>
-    </div>
-  </md-toolbar>
-    
-  <md-content layout-padding>
-    <form name="courseForm" ng-submit="addCourse()">
-      <p class="md-title">Course Info</p>
-      <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>ID</label>
-          <input required name="ID" ng-model="course.ID" ng-pattern="/^[0-9]{4}$/" md-maxlength="4">
-          <div ng-messages="courseForm.ID.$error">
-            <div ng-message="required">This is required.</div>
-            <div ng-message="md-maxlength">The ID must be less than 4 characters long.</div>
-            <div ng-message="pattern" class="my-message">That doesn't look like an identifier.
-              </div>
-          </div>
-        </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Title</label>
-          <input required name="Title" ng-model="course.Title" md-maxlength="100">
-          <div ng-messages="courseForm.Title.$error">
-            <div ng-message="required">This is required.</div>
-            <div ng-message="md-maxlength">The description must be less than 100 characters long.</div>
-          </div>
-        </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Credits</label>
-          <!--<input required name="Credit" ng-model="course.Credit">-->
-          <input required type="number" step="any" name="Credits" ng-model="course.Credits" min="1"
-               max="5" />
-          <div ng-messages="courseForm.Credits.$error">
-            <div ng-message="required">This is required.</div>
-          </div>
-        </md-input-container>
-        <md-input-container class="md-block" flex-gt-sm>
-          <label>Department</label>
-          <md-select name="department" ng-model="course.DepartmentID" required>
-            <md-option ng-repeat="item in departments" value="{{item.ID}}">{{item.Name}}</md-option>
-          </md-select>
-        </md-input-container>
-      </div>
+	<md-toolbar md-whiteframe="6">
+		<div class="md-toolbar-tools">
+			<md-button class="md-icon-button" aria-label="Menu" ng-href="#/course">
+				<md-tooltip>Back</md-tooltip>
+				<md-icon md-svg-icon="navigation:arrow_back"></md-icon>
+			</md-button>
+			<h3>
+				<span>Create Course</span>
+			</h3>
+		</div>
+	</md-toolbar>
 
-      <div class="submit-container">
-        <md-button type="submit" class="md-raised md-primary">Submit</md-button>
-      </div>
-    </form>
-  </md-content>
+	<md-content layout-padding>
+		<form name="courseForm" ng-submit="addCourse()">
+			<p class="md-title">Course Info</p>
+			<div layout-gt-sm="row">
+				<!-- CourseID -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>ID</label>
+					<input required name="ID" ng-model="course.ID" ng-pattern="/^[0-9]{4}$/" md-maxlength="4">
+					<div ng-messages="courseForm.ID.$error">
+						<div ng-message="required">This is required.</div>
+						<div ng-message="md-maxlength">The ID must be less than 4 characters long.</div>
+						<div ng-message="pattern" class="my-message">That doesn't look like an identifier.
+						</div>
+					</div>
+				</md-input-container>
+				<!-- Title -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>Title</label>
+					<input required name="Title" ng-model="course.Title" md-maxlength="100">
+					<div ng-messages="courseForm.Title.$error">
+						<div ng-message="required">This is required.</div>
+						<div ng-message="md-maxlength">The description must be less than 100 characters long.</div>
+					</div>
+				</md-input-container>
+				<!-- Credits -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>Credits</label>
+					<!--<input required name="Credit" ng-model="course.Credit">-->
+					<input required type="number" step="any" name="Credits" ng-model="course.Credits" min="1" max="5" />
+					<div ng-messages="courseForm.Credits.$error">
+						<div ng-message="required">This is required.</div>
+					</div>
+				</md-input-container>
+				<!-- Department -->
+				<md-input-container class="md-block" flex-gt-sm>
+					<label>Department</label>
+					<md-select name="department" ng-model="course.DepartmentID" required>
+						<md-option ng-repeat="item in departments" value="{{item.ID}}">{{item.Name}}</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+
+			<div>
+				<!-- Instructors -->
+				<md-chips ng-model="instructor.selectedInstructors" 
+					md-autocomplete-snap
+					md-transform-chip="instructor.transformChip($chip)" 
+					md-require-match="true">
+					<md-autocomplete 
+						md-min-length="0"
+						md-selected-item="instructor.selectedItem" 
+						md-search-text="instructor.searchText" 
+						md-items="item in instructor.querySearch(instructor.searchText)" 
+						md-item-text="item.FullName" 
+						placeholder="Instructors">
+						<span md-hilight-text="instructor.searchText">{{ item.FullName }}</span>
+					</md-autocomplete>
+					<md-chip-template>
+						<span><strong>{{ $chip.FullName }}</strong></span>
+						<!--<em>({{ $chip.Type }})</em>-->
+					</md-chip-template>
+				</md-chips>
+			</div>
+
+			<div class="submit-container">
+				<md-button type="submit" class="md-raised md-primary">Submit</md-button>
+			</div>
+		</form>
+	</md-content>
 </div>

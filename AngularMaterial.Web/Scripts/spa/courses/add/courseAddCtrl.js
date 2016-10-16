@@ -7,10 +7,22 @@
 
     function courseAddCtrl($scope, $http, $location, $mdToast) {
 
+        $scope.course = {
+            Instructors: []
+        }
         $scope.addCourse = addCourse;
         $scope.departments = [];
+        $scope.instructor = {
+            items: [],
+            searchText: null,
+            selectedItem: null,
+            transformChip: transformChip,
+            selectedInstructors: [],
+            querySearch: querySearch
+        };
 
         function addCourse() {
+            getSelectedInstructorsID()
             $http.post("api/courses/add", $scope.course)
                 .then(function (result) {
                     $location.path("/course");
@@ -31,10 +43,43 @@
             $http.get("api/departments", null)
                 .then(function (result) {
                     $scope.departments = result.data;
-                }, function (response) {});
+                }, function (response) { });
+        }
+        function loadInstructor() {
+            $http.get("api/instructors", null)
+                .then(function (result) {
+                    $scope.instructor.items = result.data;
+                }, function (response) { });
+        }
+        function transformChip(chip) {
+            // If it is an object, it's already a known chip
+            if (angular.isObject(chip)) {
+                return chip;
+            }
+            // Otherwise, create a new one
+            return { FullName: chip }
+        }
+        function getSelectedInstructorsID() {
+            $scope.course.Instructors.length = 0;
+            $scope.instructor.selectedInstructors
+                .map(function (value) {
+                    $scope.course.Instructors.push(value.ID);
+                });
+        }
+        function querySearch(query) {
+            //console.log(query);
+            var results = query ? $scope.instructor.items.filter(createFilterFor(query)) : $scope.instructor.items;
+            return results;
+        }
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+            return function filterFn(instructor) {
+                return (instructor.FullName.toLowerCase().indexOf(lowercaseQuery) > -1);
+            }
         }
 
         loadDepartments();
+        loadInstructor();
 
     }
 

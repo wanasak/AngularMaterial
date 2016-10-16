@@ -148,6 +148,7 @@
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +158,7 @@
     <Compile Include="Models\EnrollmentByStudentIDDTO.cs" />
     <Compile Include="Models\EnrollmentDTO.cs" />
     <Compile Include="Models\EnrollmentStudentCount.cs" />
+    <Compile Include="Models\InstructorDTO.cs" />
     <Compile Include="Models\StudentDetailDTO.cs" />
     <Compile Include="Models\StudentDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

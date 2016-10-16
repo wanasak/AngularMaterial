@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Collections.Generic;
+using System;
 
 namespace AngularMaterial.Web.Controllers
 {
@@ -13,12 +15,18 @@ namespace AngularMaterial.Web.Controllers
     public class CoursesController : ApiControllerBase
     {
         private readonly IEntityBaseRepository<Course> _courseRepository;
+        private readonly IEntityBaseRepository<Instructor> _instructorRepository;
+        private readonly IEntityBaseRepository<CourseInstructor> _courseInstructorRepository;
 
         public CoursesController(
-            IEntityBaseRepository<Course> courseRepository)
+            IEntityBaseRepository<Course> courseRepository,
+            IEntityBaseRepository<Instructor> instructorRepository,
+            IEntityBaseRepository<CourseInstructor> courseInstructorRepository)
             : base()
         {
             _courseRepository = courseRepository;
+            _instructorRepository = instructorRepository;
+            _courseInstructorRepository = courseInstructorRepository;
         }
 
         [HttpGet]
@@ -88,6 +96,22 @@ namespace AngularMaterial.Web.Controllers
                 };
 
                 _courseRepository.Add(course);
+
+                if (model.Instructors.Count > 0)
+                {
+                    foreach (var instructorID in model.Instructors)
+                    {
+                        Instructor instructor = _instructorRepository.GetSingle(instructorID);
+                        if (instructor == null)
+                            throw new ApplicationException("Instructor does not exist.");
+                        CourseInstructor courseInstructor = new CourseInstructor()
+                        {
+                            CourseID = course.ID,
+                            InstructorID = instructor.ID
+                        };
+                        _courseInstructorRepository.Add(courseInstructor);
+                    }
+                }
 
                 response = request.CreateResponse(HttpStatusCode.OK);
 

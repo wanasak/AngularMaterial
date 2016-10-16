@@ -81,21 +81,21 @@ namespace AngularMaterial.Data.Migrations
             context.SaveChanges();
             context.CourseSets.AddOrUpdate(
                 c => c.ID,
-                new Course { ID = 1050, Title = "Chemistry", Credits = 3, DepartmentID = 1, Instructors = new List<Instructor>() },
-                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, DepartmentID = 2, Instructors = new List<Instructor>() },
-                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, DepartmentID = 3, Instructors = new List<Instructor>() },
-                new Course { ID = 1045, Title = "Calculus", Credits = 4, DepartmentID = 4, Instructors = new List<Instructor>() },
-                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, DepartmentID = 5, Instructors = new List<Instructor>() },
-                new Course { ID = 2021, Title = "Composition", Credits = 3, DepartmentID = 5, Instructors = new List<Instructor>() },
-                new Course { ID = 2042, Title = "Literature", Credits = 4, DepartmentID = 6, Instructors = new List<Instructor>() }
+                new Course { ID = 1050, Title = "Chemistry", Credits = 3, DepartmentID = 1 },
+                new Course { ID = 4022, Title = "Microeconomics", Credits = 3, DepartmentID = 2 },
+                new Course { ID = 4041, Title = "Macroeconomics", Credits = 3, DepartmentID = 3 },
+                new Course { ID = 1045, Title = "Calculus", Credits = 4, DepartmentID = 4 },
+                new Course { ID = 3141, Title = "Trigonometry", Credits = 4, DepartmentID = 5 },
+                new Course { ID = 2021, Title = "Composition", Credits = 3, DepartmentID = 5 },
+                new Course { ID = 2042, Title = "Literature", Credits = 4, DepartmentID = 6 }
                 );
             context.SaveChanges();
-            AddOrUpdateInstructor(context, "Chemistry", "Abercrombie");
-            AddOrUpdateInstructor(context, "Chemistry", "Kapoor");
-            AddOrUpdateInstructor(context, "Calculus", "Hatori");
-            AddOrUpdateInstructor(context, "Trigonometry", "Yung");
-            AddOrUpdateInstructor(context, "Literature", "Roger");
-            context.SaveChanges();
+            //AddOrUpdateInstructor(context, "Chemistry", "Abercrombie");
+            //AddOrUpdateInstructor(context, "Chemistry", "Kapoor");
+            //AddOrUpdateInstructor(context, "Calculus", "Hatori");
+            //AddOrUpdateInstructor(context, "Trigonometry", "Yung");
+            //AddOrUpdateInstructor(context, "Literature", "Roger");
+            //context.SaveChanges();
             context.EnrollmentSets.AddOrUpdate(
                 new Enrollment { StudentID = 1, CourseID = 1050, Grade = Grade.A },
                 new Enrollment { StudentID = 1, CourseID = 4022, Grade = Grade.C },
@@ -117,14 +117,24 @@ namespace AngularMaterial.Data.Migrations
                 new Enrollment { StudentID = 9, CourseID = 1050, Grade = Grade.A }
                 );
             context.SaveChanges();
+            context.CourseInstructorSets.AddOrUpdate(
+                new CourseInstructor { CourseID = 1050, InstructorID = 1 },
+                new CourseInstructor { CourseID = 2042, InstructorID = 1 },
+                new CourseInstructor { CourseID = 4041, InstructorID = 2 },
+                new CourseInstructor { CourseID = 1050, InstructorID = 2 },
+                new CourseInstructor { CourseID = 3141, InstructorID = 3 },
+                new CourseInstructor { CourseID = 4022, InstructorID = 4 },
+                new CourseInstructor { CourseID = 1045, InstructorID = 5 }
+                );
+            context.SaveChanges();
         }
 
-        private void AddOrUpdateInstructor(AngularMaterialContext context, string courseTitle, string instructorName)
-        {
-            var course = context.CourseSets.SingleOrDefault(c => c.Title == courseTitle);
-            var instructor = context.InstructorSets.SingleOrDefault(i => i.LastName == instructorName);
-            if (instructor != null)
-                course.Instructors.Add(instructor);
-        }
+        //private void AddOrUpdateInstructor(AngularMaterialContext context, string courseTitle, string instructorName)
+        //{
+        //    var course = context.CourseSets.SingleOrDefault(c => c.Title == courseTitle);
+        //    var instructor = context.InstructorSets.SingleOrDefault(i => i.LastName == instructorName);
+        //    if (instructor != null)
+        //        course.Instructors.Add(instructor);
+        //}
     }
 }

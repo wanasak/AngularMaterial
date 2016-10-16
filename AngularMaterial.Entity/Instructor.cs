@@ -12,6 +12,6 @@ namespace AngularMaterial.Entity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime HireDate { get; set; }
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
     }
 }
