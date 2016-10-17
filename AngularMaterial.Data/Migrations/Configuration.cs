@@ -29,26 +29,9 @@ namespace AngularMaterial.Data.Migrations
             //    );
             //
 
-            context.StudentSets.AddOrUpdate(
-                s => s.FirstName,
-                new Student { FirstName = "Andrew", LastName = "Peters", Image = "ic_face_black_48px.svg", Email = "abc@gmail.com" },
-                new Student { FirstName = "Brice", LastName = "Lambson", Image = "ic_face_black_48px.svg", Email = "brice1234@yahoo.com" },
-                new Student { FirstName = "Rowan", LastName = "Miller", Image = "ic_face_black_48px.svg", Email = "rm_24@hotmail.com" },
-                new Student { FirstName = "Peggy", LastName = "Justice", Image = "ic_face_black_48px.svg", Email = "xyz@gmail.com" },
-                new Student { FirstName = "Alan", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "qwerty@gmail.com" },
-                new Student { FirstName = "Yan", LastName = "Li", Image = "ic_face_black_48px.svg", Email = "yan_li@facebook.com" },
-                new Student { FirstName = "Nino", LastName = "Olivetto", Image = "ic_face_black_48px.svg", Email = "nino2008@gmail.com" },
-                new Student { FirstName = "Brown", LastName = "Eyes", Image = "ic_face_black_48px.svg", Email = "brow45@gmail.com" },
-                new Student { FirstName = "David", LastName = "Backham", Image = "ic_face_black_48px.svg", Email = "qwerty1234@gmail.com" },
-                new Student { FirstName = "Antonio", LastName = "John", Image = "ic_face_black_48px.svg", Email = "aj@hotmail.com" },
-                new Student { FirstName = "Cory", LastName = "Ruphert", Image = "ic_face_black_48px.svg", Email = "cc_1@gmail.com" },
-                new Student { FirstName = "Sam", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "sam_s@yahoo.com" },
-                new Student { FirstName = "Linda", LastName = "Joshep", Image = "ic_face_black_48px.svg", Email = "linda@gmail.com" }
-                );
-            context.SaveChanges();
             context.DepartmentSets.AddOrUpdate(
                 d => d.Name,
-                new Department { Code="01", Name = "HUMANITIES", StartDate = new DateTime(1999, 10, 1), Address = "56 Navigation St, Birmingham B2 4BT, UK" },
+                new Department { Code = "01", Name = "HUMANITIES", StartDate = new DateTime(1999, 10, 1), Address = "56 Navigation St, Birmingham B2 4BT, UK" },
                 new Department { Code = "02", Name = "EDUCATION", StartDate = new DateTime(1990, 4, 30), Address = "17 Victoria Rd, Salford M6 8FZ, UK" },
                 new Department { Code = "03", Name = "FINE ARTS", StartDate = new DateTime(1987, 11, 28), Address = "176 Oxford Rd, Manchester M13 9QQ, UK" },
                 new Department { Code = "04", Name = "SOCIAL SCIENCES", StartDate = new DateTime(1979, 3, 4), Address = "2-3 Brunswick Pl, Southampton SO15 2AN, UK" },
@@ -69,6 +52,23 @@ namespace AngularMaterial.Data.Migrations
                 new Department { Code = "19", Name = "POL SCI and PA", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
                 new Department { Code = "20", Name = "LAW", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" },
                 new Department { Code = "21", Name = "ARTS, MEDIA AND TECHNOLOGY", StartDate = new DateTime(2009, 6, 11), Address = "19 Robert Burns Ct, Beith KA15 1DN, UK" }
+                );
+            context.SaveChanges();
+            context.StudentSets.AddOrUpdate(
+                s => s.FirstName,
+                new Student { FirstName = "Andrew", LastName = "Peters", Image = "ic_face_black_48px.svg", Email = "abc@gmail.com", Gender = Gender.Male, DepartmentID = 1 },
+                new Student { FirstName = "Brice", LastName = "Lambson", Image = "ic_face_black_48px.svg", Email = "brice1234@yahoo.com", Gender = Gender.Male, DepartmentID = 2 },
+                new Student { FirstName = "Rowan", LastName = "Miller", Image = "ic_face_black_48px.svg", Email = "rm_24@hotmail.com", Gender = Gender.Unknow, DepartmentID = 3 },
+                new Student { FirstName = "Peggy", LastName = "Justice", Image = "ic_face_black_48px.svg", Email = "xyz@gmail.com", Gender = Gender.Female, DepartmentID = 4 },
+                new Student { FirstName = "Alan", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "qwerty@gmail.com", Gender = Gender.Male, DepartmentID = 5 },
+                new Student { FirstName = "Yan", LastName = "Li", Image = "ic_face_black_48px.svg", Email = "yan_li@facebook.com", Gender = Gender.Male, DepartmentID = 5 },
+                new Student { FirstName = "Nino", LastName = "Olivetto", Image = "ic_face_black_48px.svg", Email = "nino2008@gmail.com", Gender = Gender.Female, DepartmentID = 5 },
+                new Student { FirstName = "Brown", LastName = "Eyes", Image = "ic_face_black_48px.svg", Email = "brow45@gmail.com", Gender = Gender.Female, DepartmentID = 6 },
+                new Student { FirstName = "David", LastName = "Backham", Image = "ic_face_black_48px.svg", Email = "qwerty1234@gmail.com", Gender = Gender.Male, DepartmentID = 12 },
+                new Student { FirstName = "Antonio", LastName = "John", Image = "ic_face_black_48px.svg", Email = "aj@hotmail.com", Gender = Gender.Female, DepartmentID = 15 },
+                new Student { FirstName = "Cory", LastName = "Ruphert", Image = "ic_face_black_48px.svg", Email = "cc_1@gmail.com", Gender = Gender.Male, DepartmentID = 17 },
+                new Student { FirstName = "Sam", LastName = "Smith", Image = "ic_face_black_48px.svg", Email = "sam_s@yahoo.com", Gender = Gender.Male, DepartmentID = 17 },
+                new Student { FirstName = "Linda", LastName = "Joshep", Image = "ic_face_black_48px.svg", Email = "linda@gmail.com", Gender = Gender.Male, DepartmentID = 18 }
                 );
             context.SaveChanges();
             context.InstructorSets.AddOrUpdate(

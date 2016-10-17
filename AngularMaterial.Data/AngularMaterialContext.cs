@@ -52,6 +52,17 @@ namespace AngularMaterial.Data
                 .Property(s => s.Email)
                 .IsRequired()
                 .HasMaxLength(100);
+            modelBuilder.Entity<Student>()
+                .HasRequired(s => s.Department)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+                //.HasOptional(s => s.Department)
+                //.WithMany()
+                //.HasForeignKey(s => s.DepartmentID);
+                //.HasOptional(s => s.Department)
+                //.WithMany()
+                //.HasForeignKey(s => s.DepartmentID)
+                //.WillCascadeOnDelete(false);
             // Configuration Course
             modelBuilder.Entity<Course>()
                 .Property(c => c.ID)
@@ -82,6 +93,11 @@ namespace AngularMaterial.Data
             modelBuilder.Entity<Department>()
                 .Property(d => d.StartDate)
                 .IsRequired();
+            modelBuilder.Entity<Department>()
+                .HasMany(d => d.Students)
+                .WithRequired()
+                .HasForeignKey(s => s.DepartmentID)
+                .WillCascadeOnDelete(false);
             // Configuration Instructor
             modelBuilder.Entity<Instructor>()
                 .Property(i => i.FirstName)

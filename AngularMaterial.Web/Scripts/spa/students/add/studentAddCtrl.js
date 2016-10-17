@@ -12,6 +12,7 @@
         };
         $scope.addStudent = addStudent;
         $scope.courses = [];
+        $scope.departments = [];
         $scope.toggle = function (item, list) {
             var idx = list.indexOf(item);
             if (idx > -1) {
@@ -55,8 +56,15 @@
                     $scope.courses = result.data;
                 }, function (response) {});
         }
+        function loadAllDepartment() {
+            $http.get("api/departments", null)
+                .then(function (result) {
+                    $scope.departments = result.data;
+                }, function (response) {});
+        }
 
         loadAllCourses();
+        loadAllDepartment();
 
     }
 

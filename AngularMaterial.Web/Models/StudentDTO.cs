@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngularMaterial.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace AngularMaterial.Web.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Image { get; set; }
+        public Gender Gender { get; set; }
+        public int DepartmentID { get; set; }
         public List<int> Courses { get; set; }
     }
 }

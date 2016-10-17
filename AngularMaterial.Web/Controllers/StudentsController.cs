@@ -137,8 +137,10 @@ namespace AngularMaterial.Web.Controllers
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    Image = "ic_face_black_48px.svg",
                     Email = model.Email,
-                    Image = "ic_face_black_48px.svg"
+                    Gender = model.Gender,
+                    DepartmentID = model.DepartmentID
                 };
 
                 _studentRepository.Add(student);

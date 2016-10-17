@@ -35,6 +35,8 @@
             <div ng-message="md-maxlength">The last name must be less than 50 characters long.</div>
           </div>
         </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
         <!-- Email -->
         <md-input-container class="md-block" flex-gt-sm>
           <label>Email</label>
@@ -46,7 +48,27 @@
             </div>
           </div>
         </md-input-container>
+        <!-- Department -->
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Department</label>
+          <md-select name="department" ng-model="student.DepartmentID" required>
+            <md-option ng-repeat="item in departments" ng-value="item.ID">{{ item.Name }}</md-option>
+          </md-select>
+        </md-input-container>
       </div>
+
+      <!-- Gender -->
+      <md-radio-group ng-model="student.Gender">
+        <div class="row">
+          <div flex layout='row' layout-padding layout-align="start center" >
+            <!--<div flex style="max-width: 200px;">
+              Gender
+            </div>-->
+            <md-radio-button value="Male" class="md-primary">Male</md-radio-button>
+            <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
+          </div>
+        </div>
+      </md-radio-group>
 
       <!-- Courses -->
       <div>

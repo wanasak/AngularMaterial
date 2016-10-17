@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace AngularMaterial.Entity
 {
+    public enum Gender
+    {
+        Unknow,
+        Male,
+        Female
+    }
     public class Student : IEntityBase
     {
         public int ID { get; set; }
@@ -13,6 +19,9 @@ namespace AngularMaterial.Entity
         public string LastName { get; set; }
         public string Image { get; set; }
         public string Email { get; set; }
+        public Gender Gender { get; set; }
+        public int DepartmentID { get; set; }
+        public virtual Department Department { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
