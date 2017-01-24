@@ -13,3 +13,5 @@ Installation instructors
   >> update-database -verbose
 
 5. Run AngularMaterial.Web application
+
+![2017-01-24_1802](https://cloud.githubusercontent.com/assets/9244348/22245021/6fcf7372-e260-11e6-899b-016821a205a8.png)
